@@ -14,6 +14,7 @@ $pdo = db_connect();
 $sql = "SELECT * FROM `profile` WHERE `user_id` LIKE '%:word%' OR `user_name` LIKE '%:word%";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':word',$queryWord,PDO::PARAM_STR);
+$res = $stmt->exec();
 
 if ($res == false){
   $error = $stmt->errorInfo();
@@ -39,6 +40,7 @@ $pdo = db_connect();
 $sql = "SELECT * FROM `tweet` WHERE `tweet_text` LIKE '%:word%'";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':word',$queryWord,PDO::PARAM_STR);
+$res = $stmt->exec();
 
 if ($res == false){
   $error = $stmt->errorInfo();
