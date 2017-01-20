@@ -57,4 +57,7 @@ while( $data = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 // セッションに検索結果を格納
 $_SESSION['hitTweets'] = $hitTweets;
+
+//ajax に OKを返信
+echo 'OK';
 ?>
