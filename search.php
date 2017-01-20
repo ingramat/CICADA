@@ -29,6 +29,9 @@ while( $data = $stmt->fetch(PDO::FETCH_ASSOC)){
                              'profile_img'=>$data['profile_img'], 'profile_text'=>$data['profile_text']);
     $cnt++;
 }
+// セッションに検索結果を格納
+$_SESSION['hitProfiles'] = $hitProfiles;
+
 
 // ツイート本文の検索
 $pdo = db_connect();
@@ -52,6 +55,6 @@ while( $data = $stmt->fetch(PDO::FETCH_ASSOC)){
     $cnt++;
 }
 
-var_dump($pdo);
-echo 'test';
+// セッションに検索結果を格納
+$_SESSION['hitTweets'] = $hitTweets;
 ?>
