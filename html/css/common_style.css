@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+
+/*    elements    */
+
+* {
+    box-sizing: border-box;
+}
+
+img{
+    width:100;
+    height:auto;
+}
+
+
+/*     layouts    */
+
+.container {
+    max-width: 1000px;
+    margin:10px auto;
+}
+
+
+header{
+    width:100%;
+    margin:10px;
+    padding:10px;
+}
+
+.main {
+    width:100%;
+
+}
+
+.column_child {
+    display:flex;
+    flex-direction: column;
+}
+
+.row_child{
+    display:flex;
+    flex-direction: row;
+}
+
+.centerize {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/*     styles     */
+
+header {
+    background-color: #b0c4de;
+}
