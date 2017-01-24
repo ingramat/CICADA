@@ -32,6 +32,6 @@ $profile = new ProfileData($data['id'],$data['user_id'],$data['user_name'],$data
                             $data['all_like_count']);
 
 
-echo json_encode($profile);
+echo json_encode($profile,JSON_UNESCAPED_UNICODE);
 exit();
 
