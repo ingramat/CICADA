@@ -1,20 +1,30 @@
 <?php
 
+// echo 'start';
+// exit();
 include('./common_funcs.php');
 include('./DataClass.php');
-
+// echo 'include';
+// exit();
 $pdo = db_connect();
+// echo 'db connect';
+// exit();
 
-$sql = 'SELECT * FROM `profile`  WHERE `id` = 1';
-
+$sql = 'SELECT * FROM `Profile`  WHERE `id` = 1';
+// echo $sql;
+// exit();
 $stmt = $pdo->prepare($sql);
-$res = $stmt->exec();
+$res = $stmt->execute();
+
+// echo 'res';
+// exit();
 
 if ($res == false){
   $error = $stmt->errorInfo();
  exit('SQL Error:'.$error[2]);
 } 
-
+// echo 'SQL OK';
+// exit();
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $profile = new ProfileData($data['id'],$data['user_id'],$data['user_name'],$data['user_pwd'],$data['mail_adrs'],$data['profile_img'],

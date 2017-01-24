@@ -1,4 +1,4 @@
-<?
+<?php
 class ProfileData {
     public $id;
     public $user_id;

@@ -25,7 +25,5 @@ function db_connect(){
     return $pdo;
 }
 
-class ProfileData {
-    public $userId = '';
-    public $userName = '';
-}
+
+?>
