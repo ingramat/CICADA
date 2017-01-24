@@ -7,8 +7,7 @@ function h($val){
 
 function SessionCheck(){
     if (!isset($_SESSION['chk_ssid']) || $_SESSION['chk_ssid'] != session_id() ){
-        $urlq = './usr_login_view.php';
-        include('login_error.php');
+        header('Location:',304);
         exit;
     } else {
         session_regenerate_id(true);
@@ -24,4 +23,9 @@ function db_connect(){
     }
 
     return $pdo;
+}
+
+class ProfileData {
+    public $userId = '';
+    public $userName = '';
 }

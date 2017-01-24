@@ -2,18 +2,19 @@
 
 session_start();
 include('./common_funcs.php');
+SessionCheck();
 
-if (!isset($_POST['user_id']) || $_POST['user_id'] == ''||
-!isset($_POST['user_name']) || $_POST['user_name'] == ''||
-!isset($_POST['mail_adrs']) || $_POST['mail_adrs'] == ''||
-!isset($_POST['user_pwd']) || $_POST['user_pwd'] == '' ){
-    //POST データがきちんと来ていない場合はエラー
-    echo 'POST_DATA_ERROR';
-    exit();
+//とりあえず、セッション変数に情報があるか確認
+
+if (!isset($_SESSION['user_id_tmp']) || !isset($_SESSION['user_name_tmp']) ||
+    !isset($_SESSION['mail_adrs_tmp']) || !isset($_SESSION['user_pwd_tmp']) ||
+    !isset($_SESSION['profile_text_tmp']) || !isset($_SESSION['profile_img_tmp'])){
+        // データがセットされていなかったらエラー
+        echo 'NO_REGISTER_INFO';
+        exit();
 }
 
-//とりあえず、セッションに格納
-$_SESSION['chk_ssid'] = session_id();
+
 
 $_SESSION['user_id_tmp'] = $_POST['user_id'];
 $_SESSION['user_name_tmp'] = $_POST['user_name'];
