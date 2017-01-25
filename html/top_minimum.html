@@ -16,7 +16,7 @@
         <div class="main">
             <div class="login_signIn_buttons column_child">
                 <button id="btnLogin">ログイン</button>
-                <button id="signIn">新規登録</button>
+                <button id="btnSignIn">新規登録</button>
             </div>
         </div>
 
@@ -42,6 +42,11 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $("#btnSignIn").on('click',function(ev){
+            window.location.href = './registration_minimum.html'
+        });
+    </script>
     <!--ここ以下に、javascriptを入れてください。-->
     <!-- ＊フォームの中身が空じゃないかチェックしてください。
          *空だったらエラーを表示してください。

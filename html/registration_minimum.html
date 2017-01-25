@@ -55,6 +55,28 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $('btnRegistDataSubmit').on('click',function(ev){
+
+            let user_id = $('#user_id').val();
+            let user_name = $('#user_name').val();
+            let user_pwd = $('#user_pwd').val();
+            let mail_adrs = $('#mail_adrs').val();
+            let fd = new FormData();
+            if ($('#profile_img').val() !== ''){
+                fd.append('file',$('#profile_img').prop('files')[0]);
+            }
+
+            fd.append
+
+            
+            $.ajax({
+                type:'POST',
+                url:'../registration_input.php',
+                data:{}
+            });
+        });
+    </script>
      <!--ここ以下に、javascriptを入れてください。-->
     <!-- ＊ユーザ名、ユーザID、パスワード、メールアドレスは
         　フォームの中身が空じゃないかチェックしてください。
