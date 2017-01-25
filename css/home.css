@@ -28,3 +28,6 @@ main{
 a:visited:not(.btn) {
   color:black;
 }
+#home_jpg{
+  margin-top: 20px;
+}
