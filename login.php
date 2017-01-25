@@ -2,6 +2,7 @@
 
 session_start();
 include('./common_funcs.php');
+include('./DataClass.php');
 
 if (!isset($_POST['user_id_OR_email']) || $_POST['user_id_OR_email'] == ''||
 !isset($_POST['user_pwd']) || $_POST['user_pwd'] == '' ){
@@ -21,7 +22,7 @@ else    $userId = $_POST['user_id_OR_email'];
 $pdo = db_connect();
 
 $pwd = $_POST['user_pwd'];
-$sql = 'SELECT * FROM `profile` WHERE ';
+$sql = 'SELECT `user_pwd` FROM `profile` WHERE ';
 $stmt = '';
 
 if ($email != ''){
@@ -57,17 +58,11 @@ if (!isset($data['user_pwd']) || $data['user_pwd'] == ''){
 
         $_SESSION['chk_ssid'] = session_id();
 
-        $_SESSION['user_id'] = $data['user_id'];
-        $_SESSION['user_name'] = $data['user_name'];
-        $_SESSION['mail_adrs'] = $data['mail_adrs'];
-        $_SESSION['profile_img'] = $data['profile_img'];
-        $_SESSION['profile_text'] = $data['profile_text'];
-        $_SESSION['follow_ids'] = json_decode($data['follwo_ids']);
-        $_SESSION['follower_ids'] = json_decode($data['follwoer_ids']);
-        $_SESSION['reg_date'] = $data['reg_date'];
-        $_SESSION['all_like_count'] = $data['all_like_count'];
+        // $profile = new ProfileData($data['id'],$data['user_id'],$data['user_name'],$data['mail_adrs'],$data['profile_img'],
+        //                            $data['profile_text'], json_decode($data['follwo_ids']), json_decode($data['follwoer_ids']),
+        //                            $data['reg_date'], $data['all_like_count']);
 
-
+        // $_SESSION['profile_data'] = serialize($profile); 
 
         echo 'LOGIN_OK';
         exit();
