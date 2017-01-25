@@ -2,6 +2,7 @@
 
 session_start();
 include('./common_funcs.php');
+include('./DataClass.php');
 
 if (!isset($_POST['user_id']) || $_POST['user_id'] == ''||
 !isset($_POST['user_name']) || $_POST['user_name'] == ''||
@@ -23,10 +24,10 @@ $_SESSION['profile_text_tmp'] = $_POST['profile_text'];
 
 //1.アップロードが正常に行われたかチェック
 //isset();でファイルが送られてきてるかチェック！そしてErrorが発生してないかチェック
-if(isset($_FILES['filename']) && $_FILES['filename']['error']==0){
+if(isset($_FILES['profile_img']) && $_FILES['profile_img']['error']==0){
     
     //***File名の変更***
-    $file_name = $_FILES["filename"]["name"]; //"1.jpg"ファイル名取得
+    $file_name = $_FILES["profile_img"]["name"]; //"1.jpg"ファイル名取得
     $extension = pathinfo($file_name, PATHINFO_EXTENSION); //拡張子取得
     $uniq_name = date("YmdHis").md5(session_id()) . "." . $extension;  //ユニークファイル名作成
 
@@ -35,12 +36,15 @@ if(isset($_FILES['filename']) && $_FILES['filename']['error']==0){
     
     // アップロードしたファイルを指定のパスへ移動
     //例）move_uploaded_file("一時保存場所","成功後に正しい場所に移動");
-    if (move_uploaded_file($_FILES["filename"]['tmp_name'],$upload_file)){
+    if (move_uploaded_file($_FILES["profile_img"]['tmp_name'],$upload_file)){
         
         //パーミッションを変更（ファイルの読み込み権限を付けてあげる）
         chmod($upload_file,0644);
 
         $_SESSION['profile_img_tmp'] = $upload_file;
+
+        echo 'RECEIVE_OK';
+        exit();
         
     }else{
         echo "FILE_MOVE_ERROR";
@@ -51,5 +55,3 @@ if(isset($_FILES['filename']) && $_FILES['filename']['error']==0){
     exit();
 }
 
-echo 'RECEIVE_OK';
-exit();
