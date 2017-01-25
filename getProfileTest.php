@@ -10,7 +10,7 @@ $pdo = db_connect();
 // echo 'db connect';
 // exit();
 
-$sql = 'SELECT * FROM `Profile`  WHERE `id` = 1';
+$sql = 'SELECT * FROM `Profile`  WHERE `id` = 2';
 // echo $sql;
 // exit();
 $stmt = $pdo->prepare($sql);
