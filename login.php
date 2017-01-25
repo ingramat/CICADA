@@ -27,17 +27,17 @@ $stmt = '';
 if ($email != ''){
      //  もしemailできてたら
     $sql += '`mail_adrs` = :email';
-    $stmt = $pdo->prepair($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':email',$email,PDO::PARAM_STR);
 }   
 else{
     // ユーザIDできてたら
     $sql += '`user_id` = :userId';
-    $stmt = $pdo->prepair($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':userId',$userId,PDO::PARAM_STR);
 }  
 
-$res = $stmt->exec();
+$res = $stmt->execute();
 
 if ($res == false){
   $error = $stmt->errorInfo();
