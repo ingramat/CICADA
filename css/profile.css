@@ -1,13 +1,16 @@
 body{
   width:80%;
   margin:0 auto;
+  background: #F5F8FA;
+}
+header{
+  background:#FFF;
 }
 .header{
   margin-top:10px;
   margin-left:10px;
 }
 main{
-  background: #F5F8FA;
 }
 #profile{
   margin-top:10px;
@@ -30,4 +33,10 @@ a:visited:not(.btn) {
 }
 #detail{
   margin-top:20px;
+}
+.zaki{
+  margin-top:20px;
+}
+.btn{
+  cursor:pointer;
 }
