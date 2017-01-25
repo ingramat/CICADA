@@ -22,18 +22,18 @@ else    $userId = $_POST['user_id_OR_email'];
 $pdo = db_connect();
 
 $pwd = $_POST['user_pwd'];
-$sql = 'SELECT `user_pwd` FROM `profile` WHERE ';
+$sql = 'SELECT `user_pwd` FROM `Profile` WHERE ';
 $stmt = '';
 
 if ($email != ''){
      //  もしemailできてたら
-    $sql += '`mail_adrs` = :email';
+    $sql = $sql.'`mail_adrs` = :email';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':email',$email,PDO::PARAM_STR);
 }   
 else{
     // ユーザIDできてたら
-    $sql += '`user_id` = :userId';
+    $sql = $sql.'`user_id` = :userId';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':userId',$userId,PDO::PARAM_STR);
 }  
