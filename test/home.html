@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+</head>
+<body>
+	<header id="header" class="">
+		
+	</header><!-- /header -->
+	<main>
+		<div class="sidebar">
+			<div class="side-content1" id="my_profile_wrapper">
+				<div id="my_profile_img"></div>
+				<div id="my_profile_bgimg"></div>
+				<div id="my_name" my_name="aaa">ユーザー名</div>
+				<div id="my_id" my_id="bbb">ID名</div>
+				<div class="profile-box">
+					<div class="my_tweet">ツイート</div>
+					<div class="my_follow">フォロー</div>
+					<div class="my_follower">フォロワー</div>
+				</div>
+			</div>
+			<div class="side-content2"></div>
+			<div class="side-content3"></div>
+		</div>
+		<div class="content"></div>
+	</main>
+    <style type="text/css" media="screen">
+		body,html{
+			margin:0px;
+		}
+
+		main{
+			height:3000px;
+			background-color: #F5F8FA;
+		}
+
+    	#header{
+    		background-color:red;
+    		height:50px;
+    		width:100%;
+    		margin-bottom:10px;
+    	}
+
+		#my_name::after{
+			content:attr(my_name);
+		}
+		#my_id::after{
+			content:attr(my_idzx);
+		}
+
+    	.sidebar{
+    		float:left;
+    		background-color:black;
+    		width:24%;
+    		height:500px;
+    		margin-left:13%;
+    	}
+
+    	#my_profile_wrapper{
+    		width:100%;
+    		height:300px;
+    		background-color: green;
+    	}
+
+		#my_profile_bgimg{
+			width:100%;
+			height:150px;
+			background-color: yellow;
+		}
+
+		.profile-box{
+			display:flex;
+			justify-content:space-around;
+		}
+    	.content{
+    		margin-right:13%;
+    		float:right;
+    		width:49%;
+    		height:2000px;
+    		background-color:skyblue;
+    	}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="getprofile.js"></script>
+</body>
+</html>
