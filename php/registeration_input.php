@@ -32,7 +32,7 @@ if(isset($_FILES['profile_img']) && $_FILES['profile_img']['error']==0){
     $uniq_name = date("YmdHis").md5(session_id()) . "." . $extension;  //ユニークファイル名作成
 
     //2. アップロード先とファイル名を作成
-    $upload_file = "./tmp_profile_imgs/".$uniq_name; //ユニークファイル名とパス
+    $upload_file = "../tmp_profile_imgs/".$uniq_name; //ユニークファイル名とパス
     
     // アップロードしたファイルを指定のパスへ移動
     //例）move_uploaded_file("一時保存場所","成功後に正しい場所に移動");
@@ -41,7 +41,8 @@ if(isset($_FILES['profile_img']) && $_FILES['profile_img']['error']==0){
         //パーミッションを変更（ファイルの読み込み権限を付けてあげる）
         chmod($upload_file,0644);
 
-        $_SESSION['profile_img_tmp'] = $upload_file;
+        // パス名の最初の.を削除する。
+        $_SESSION['profile_img_tmp'] = substr($upload_file,1);
 
         echo 'RECEIVE_OK';
         exit();

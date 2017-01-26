@@ -105,7 +105,7 @@ $('#btnRegisterInput').on('click',function(ev){
 
     $.ajax({
         type:'POST',
-        url:'./registeration_input.php',
+        url:'./php/registeration_input.php',
         data:formData,
         cache       : false,
         contentType : false,
