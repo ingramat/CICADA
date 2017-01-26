@@ -4,12 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <title>CICADA 新規登録</title>
-    <!--<link rel="stylesheet" href="./html/css/common_style.css">-->
-    <!--<link rel="stylesheet" href="./html/css/registration_style.css">-->
+    <link rel="stylesheet" href="./html/css/common_style.css">
+    <link rel="stylesheet" href="./html/css/registration_style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="css/registration_confirm.css" rel="stylesheet" type="text/css" media="all" />
+    <style>
+
+    </style>
 </head>
 
 <body>
+    <main>
+        <h1 id="tou">CICADA 新規登録確認</h1>
 
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>タイトル</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ユーザID：</th>
+                            <td id="user_id"></td>
+                        </tr>
+                        <tr>
+                            <th>ユーザ名：</th>
+                            <td id="user_name"></td>
+                        </tr>
+                        <tr>
+                            <th>メールアドレス：</th>
+                            <td id="mail_adrs"></td>
+                        </tr>
+                        <tr>
+                            <th>プロフィール画像</th>
+                            <td><img src="" alt="プロフィール画像" id="profile_img"></td>
+                        </tr>
+                        <tr>
+                            <th>自己紹介文：</th>
+                            <td id="profile_text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="row">
+
+                            <div class="col-sm-6"> <button class="btn btn-default">登録</button></div>
+                            <div class="col-sm-6"> <button class="btn btn-default">戻る</button></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+
+    </main>
+
+
+    <!--
     <div class="container">
         <header>
             <h1>CICADA 新規登録確認</h1>
@@ -21,7 +95,7 @@
 
             <ul id="confirmList" class="column_child">
                 <li class="row_child">
-                    <div class="label">ユーザID：</div>
+                    <label class="label">ユーザID：</label>
                     <div class="value" id="user_id"></div>
                 </li>
                 <li class="row_child">
@@ -42,7 +116,6 @@
                 </li>
 
             </ul>
-            <p id="error_ajax" class="error_message"></p>
             <button id="btnRegistConfirm">登録</button>
             <button id="btnBack">戻る</button>
         </div>
@@ -50,7 +123,7 @@
         <footer>
             <p></p>
         </footer>
-    </div>
+    </div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="./js/registration_confirm.js"></script>
