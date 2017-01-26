@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     width: 80%;
     margin: 0 auto;
@@ -41,6 +42,45 @@ main {}
     font-size: 20px;
 }
 
+=======
+body{
+  width:80%;
+  margin:0 auto;
+  background: #F5F8FA;
+}
+header{
+  background:#FFF;
+}
+.header{
+  margin-top:10px;
+  margin-left:10px;
+}
+
+main{
+}
+#profile{
+  margin-top:10px;
+  margin-left:20px;
+  width:210px;
+  height:200px;
+  float:left;
+}
+#information{
+  text-align: center;
+}
+.tweet{
+  /*margin-left:30%;*/
+  margin-bottom:10px;
+  /*text-align: center;*/
+  /*margin-left:50%;*/
+  width:500px;
+  height:200px;
+  border:solid #333;
+}
+#name{
+  font-size: 20px;
+}
+>>>>>>> f71001950869e6b1ba315f1df5795106004ffafd
 a:visited:not(.btn) {
     color: black;
 }

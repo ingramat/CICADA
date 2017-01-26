@@ -7,7 +7,7 @@ function h($val){
 
 function SessionCheck(){
     if (!isset($_SESSION['chk_ssid']) || $_SESSION['chk_ssid'] != session_id() ){
-        header('Location:',304);
+        header('Location:./session_error.html');
         exit;
     } else {
         session_regenerate_id(true);

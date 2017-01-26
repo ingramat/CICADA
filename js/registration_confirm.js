@@ -13,7 +13,7 @@ $.ajax({
         $('#user_name').text(data.user_name);
         $('#mail_adrs').text(data.mail_adrs);
 
-        if (data.profile_img !== '' || data.profile_img){
+        if (data.profile_img !== null || data.profile_img){
             // プロファイル画像があるなら。
             $('#profile_img').prop('src',data.profile_img);
         
@@ -46,6 +46,26 @@ $('#btnBack').on('click',function(ev){
     window.location.href = './register.html';
 });
 
-$('#btnRgistConfirm').on('click',function(ev){
+$('#btnRegistConfirm').on('click',function(ev){
+    console.log('pushed');
+    $.ajax({
+        type:'GET',
+        url:'./php/register_profile.php'
+
+    }).done(function(data, textStatus, jqXHR){
+        console.log(data);
+
+        if (data === 'REGISTER_OK'){
+            // 登録成功していたらhome画面へ
+            window.location.href = './home.html';
+        } else {
+            $('#error_ajax').text('登録できませんでした。')
+        }
+        
+
+    }).fail(function(data, textStatus, jqXHR){
+         console.log(data);
+         $('#error_ajax').text('登録できませんでした。')
+    });
 
 });
