@@ -23,7 +23,13 @@ main{
   text-align: center;
 }
 .tweet{
-  margin-left:50%;
+  /*margin-left:30%;*/
+  margin-bottom:10px;
+  /*text-align: center;*/
+  /*margin-left:50%;*/
+  width:500px;
+  height:200px;
+  border:solid #333;
 }
 #name{
   font-size: 20px;
@@ -46,4 +52,31 @@ a:visited:not(.btn) {
   /*width:80%;*/
   height:200px;
   z-index: -1;
+}
+.ttt{
+  border-bottom:#1DA1F2 solid;
+}
+.hea{
+  margin-top:30px;
+}
+.propro{
+  width:100px;
+  height:auto;
+  margin-top:10px;
+  margin-left:10px;
+  float:left;
+}
+.id_h{
+  margin-left:10px;
+}
+.name_h{
+  margin-left:10px;
+  font-size:20px;
+  font-weight: bold;
+}
+.uee{
+  margin-top:10px;
+}
+.ter{
+  margin-left:150px;
 }
