@@ -14,7 +14,7 @@ $.ajax({
         $('#user_name').val(data.user_name);
         $('#mail_adrs').val(data.mail_adrs);
 
-        if (data.profile_img !== '' || data.profile_img){
+        if (data.profile_img !== null || data.profile_img){
             // プロファイル画像があるなら。
             $('#pre_img').prop('src',data.profile_img);
         }
@@ -96,10 +96,12 @@ $('#btnRegisterInput').on('click',function(ev){
 
     // 自己紹介文があれば、formdataにセット
     if($('#profile_text').val() && $('#profile_text').val() !== ''){
+        console.log('profile text exists');
         formData.append($('#profile_text').prop('name'),$('#profile_text').val());
     }
     // 
     if($('#profile_img').val() && $('#profile_img').val() !== ''){
+        console.log('file exists');
         formData.append($('#profile_img').prop('name'),$('#profile_img').prop('files')[0]);
     }
 
@@ -117,11 +119,13 @@ $('#btnRegisterInput').on('click',function(ev){
             // 登録内容のアップロードが成功したら
             window.location.href = './registration_confirm.html';
         
+        } else if (data === 'ALREADY_EXISTS'){
+            $('#error_ajax').text('そのユーザー名もしくはメールアドレスはすでに登録されています。');
         } else {
-            $('#error_ajax').text('登録できませんでした。')
+            $('#error_ajax').text('登録できませんでした。');
         }
 
     }).fail(function(jqXHR, textStatus, errorThrown){
-        $('#error_ajax').text('サーバーとの通信に失敗しています。')
+        $('#error_ajax').text('サーバーとの通信に失敗しています。');
     });
 });
