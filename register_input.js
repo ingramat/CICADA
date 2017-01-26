@@ -1,4 +1,36 @@
-// 'use strict'
+'use strict'
+
+//戻ってきた時に、一時登録データを読みだす。
+$.ajax({
+    type:'GET',
+    url:'./getTempRegistration.php',
+    dataType:'json'
+}).done(function(data, textStatus, jqXHR){
+    console.log(data);
+    if (data !== 'NO_SESSION_DATA'){
+        
+        
+        $('#user_id').val(data.user_id);
+        $('#user_name').val(data.user_name);
+        $('#mail_adrs').val(data.mail_adrs);
+
+        if (data.profile_img !== '' || data.profile_img){
+            // プロファイル画像があるなら。
+            $('#pre_img').prop('src',data.profile_img);
+        }
+
+        if (data.profile_text !== '' || data.profile_text){
+            // 自己紹介文があるなら。
+            $('#profile_text').val(data.profile_text);
+        
+        } 
+
+     } 
+
+}).fail(function(data, textStatus, jqXHR){
+    //  $('#error_ajax').text('一時ファイルの取得に失敗しました。');
+});
+
 
 // 読み込み画像のプレビュー
 $('#profile_img').on('change.inputFile',function(ev){
@@ -27,24 +59,33 @@ $('#btnRegisterInput').on('click',function(ev){
     if (!$('#user_id').val() || $('#user_id').val() === ''){
         $('#error_user_id').text('ユーザーIDが入力されていません。');
         errorFlag = true;
+    } else{
+        $('#error_user_id').text('');
     }
 
     if (!$('#mail_adrs').val() || $('#mail_adrs').val() === ''){
         $('#error_email').text('メールアドレスが入力されていません。');
         errorFlag = true;
+    } else{
+        $('#error_email').text('');
     }
 
     if (!$('#user_pwd').val() || $('#user_pwd').val() === ''){
         $('#error_user_pwd').text('パスワードが入力されていません。');
         errorFlag = true;
+    } else{
+        $('#error_user_pwd').text('');
     }
 
     if (!$('#user_name').val() || $('#user_name').val() === ''){
         $('#error_user_name').text('ニックネームが入力されていません。');
         errorFlag = true;
+    } else{
+        $('#error_user_name').text('');
     }
 
     if (errorFlag) return;
+    
 
     let formData = new FormData();
 
