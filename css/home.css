@@ -1,3 +1,42 @@
+
+.tweet{
+  /*margin-left:30%;*/
+  margin-bottom:10px;
+  /*text-align: center;*/
+  /*margin-left:50%;*/
+  width:500px;
+  height:200px;
+  border:solid #333;
+}
+#name{
+  font-size: 20px;
+}
+
+.hea{
+  margin-top:30px;
+}
+.propro{
+  width:100px;
+  height:auto;
+  margin-top:10px;
+  margin-left:10px;
+  float:left;
+}
+.id_h{
+  margin-left:10px;
+}
+.name_h{
+  margin-left:10px;
+  font-size:20px;
+  font-weight: bold;
+}
+.uee{
+  margin-top:10px;
+}
+.ter{
+  margin-left:150px;
+}
+
 body{
   width:80%;
   margin:0 auto;
@@ -13,15 +52,15 @@ header{
 #profile{
   margin-top:10px;
   margin-left:20px;
-  width:210px;
-  height:200px;
+  /*width:210px;
+  height:200px;*/
   float:left;
 }
 #information{
-  text-align: center;
+  /*text-align: center;*/
 }
 .tweet{
-  margin-left:50%;
+  /*margin-left:50%;*/
 }
 #name{
   font-size: 20px;
@@ -31,4 +70,10 @@ a:visited:not(.btn) {
 }
 #home_jpg{
   margin-top: 20px;
+}
+#tes{
+  margin-top:100px;
+}
+.sub{
+  height:180px;
 }
