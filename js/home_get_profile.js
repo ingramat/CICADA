@@ -24,17 +24,20 @@ $.ajax({
 
         // ユーザIDの挿入
         $('.login_user_id').each(function(){
-            $(this).text('id:'+data.user_name);
+            $(this).text('id:'+data.user_id);
         });
 
         // ツイート数の挿入
-        $('#tweet_count').text(data.tw_count);
+        if (data.tw_count !== null) $('#tweet_count').text(data.tw_count);
+        else $('#tweet_count').text('0');
 
          // フォローの数の挿入
-        $('#follow_count').text(data.follow_count);
+        if (data.follow_count !== null) $('#follow_count').text(data.follow_count);
+        else $('#follow_count').text('0');
 
          // フォロワーの数の挿入
-        $('#follower_count').text(data.follower_count);
+        if (data.follower_count !== null) $('#follower_count').text(data.follower_count);
+        else $('#follower_count').text('0');
     } else {
 
     }
