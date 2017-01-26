@@ -3,7 +3,7 @@
 //戻ってきた時に、一時登録データを読みだす。
 $.ajax({
     type:'GET',
-    url:'./getTempRegistration.php',
+    url:'./php/getTempRegistration.php',
     dataType:'json'
 }).done(function(data, textStatus, jqXHR){
     console.log(data);

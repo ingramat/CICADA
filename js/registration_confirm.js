@@ -2,7 +2,7 @@
 
 $.ajax({
     type:'GET',
-    url:'./getTempRegistration.php',
+    url:'./php/getTempRegistration.php',
     dataType:'json'
 }).done(function(data, textStatus, jqXHR){
     console.log(data);

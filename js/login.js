@@ -29,7 +29,7 @@ $('#btnSubmit').on('click',function(ev){
 
         $.ajax({
             type:'POST',
-            url:'./login.php',
+            url:'./php/login.php',
             data:{
                 'user_id_OR_email' : emailOrUsrId,
                 'user_pwd' : usrPwd
