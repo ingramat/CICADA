@@ -1,79 +1,94 @@
-
-.tweet{
-  /*margin-left:30%;*/
-  margin-bottom:10px;
-  /*text-align: center;*/
-  /*margin-left:50%;*/
-  width:500px;
-  height:200px;
-  border:solid #333;
-}
-#name{
-  font-size: 20px;
+.tweet {
+    /*margin-left:30%;*/
+    margin-bottom: 10px;
+    /*text-align: center;*/
+    /*margin-left:50%;*/
+    width: 500px;
+    height: 200px;
+    border: solid #333;
 }
 
-.hea{
-  margin-top:30px;
-}
-.propro{
-  width:100px;
-  height:auto;
-  margin-top:10px;
-  margin-left:10px;
-  float:left;
-}
-.id_h{
-  margin-left:10px;
-}
-.name_h{
-  margin-left:10px;
-  font-size:20px;
-  font-weight: bold;
-}
-.uee{
-  margin-top:10px;
-}
-.ter{
-  margin-left:150px;
+#name {
+    font-size: 20px;
 }
 
-body{
-  width:80%;
-  margin:0 auto;
-  background: #F5F8FA;
+.hea {
+    margin-top: 30px;
 }
-.header{
-  margin-top:10px;
-  margin-left:10px;
+
+.propro {
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
 }
-header{
-  background:#FFF;
+
+.id_h {
+    margin-left: 10px;
 }
-#profile{
-  margin-top:10px;
-  margin-left:20px;
-  /*width:210px;
+
+.name_h {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.uee {
+    margin-top: 10px;
+}
+
+.ter {
+    margin-left: 150px;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    background: #F5F8FA;
+}
+
+.header {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+header {
+    background: #FFF;
+}
+
+#profile {
+    margin-top: 10px;
+    margin-left: 20px;
+    /*width:210px;
   height:200px;*/
-  float:left;
+    float: left;
 }
-#information{
-  /*text-align: center;*/
+
+#information {
+    /*text-align: center;*/
 }
-.tweet{
-  /*margin-left:50%;*/
+
+.tweet {
+    /*margin-left:50%;*/
 }
-#name{
-  font-size: 20px;
+
+#name {
+    font-size: 20px;
 }
+
 a:visited:not(.btn) {
-  color:black;
+    color: black;
 }
-#home_jpg{
-  margin-top: 20px;
+
+#home_jpg {
+    margin-top: 20px;
 }
-#tes{
-  margin-top:100px;
+
+#tes {
+    margin-top: 100px;
 }
-.sub{
-  height:180px;
+
+.sub {
+    height: 180px;
 }

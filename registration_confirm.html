@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>CICADA 新規登録</title>
     <link rel="stylesheet" href="./html/css/common_style.css">
     <link rel="stylesheet" href="./html/css/registration_style.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -14,8 +16,8 @@
         </header>
 
         <div class="main">
-            <p id="display_text">入力内容を確認してください。<br>
-            よろしければ、登録ボタンを押してください。</p>
+            <p id="display_text">入力内容を確認してください。<br> よろしければ、登録ボタンを押してください。
+            </p>
 
             <ul id="confirmList" class="column_child">
                 <li class="row_child">
@@ -38,7 +40,7 @@
                     <div class="label">自己紹介文：</div>
                     <div class="value" id="profile_text"></div>
                 </li>
-                
+
             </ul>
             <button id="btnRegistConfirm">登録</button>
             <button id="btnBack">戻る</button>
@@ -51,7 +53,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="./js/registration_confirm.js"></script>
-     <!--ここ以下に、javascriptを入れてください。-->
+    <!--ここ以下に、javascriptを入れてください。-->
     <!-- ＊最初に、php にajax GET でユーザが入力した内容を
             取得してください。
 
@@ -61,4 +63,5 @@
         ＊サーバーからの返信が'REGISTER_OK'ならHOMEページヘ、
             'REGISTER_NG'なら何らかのエラーで失敗-->
 </body>
+
 </html>
