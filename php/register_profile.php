@@ -56,6 +56,22 @@ if ($res == false){
  exit('SQL Error:'.$error[2]);
 } 
 
+
+// 登録できたら、Profileのid(プライマリキー)を取得しておく。
+
+$sql = "SELECT `id` FROM `Profile` WHERE `user_id` = :usrId";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':usrId',$_SESSION['user_id_tmp'],PDO::PARAM_STR);
+
+if ($stmt->execute() == false){
+  $error = $stmt->errorInfo();
+ exit('SQL Error:'.$error[2]);
+} 
+
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$_SESSION['login_id'] = $data['id'];
+
 // SQL に格納できたら、一時セッションデータと、一時フォルダの画像を消す。
 
 unlink($_SESSION['profile_img_tmp']);
@@ -67,8 +83,6 @@ unset($_SESSION['mail_adrs_tmp']);
 unset($_SESSION['profile_img_name_tmp']);
 unset($_SESSION['profile_img_tmp']);
 unset($_SESSION['profile_text_tmp']);
-
-
 
 echo 'REGISTER_OK';
 exit();
