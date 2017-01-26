@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="css/profile.css" rel="stylesheet" type="text/css" media="all" />
   <title>CICADA</title>
@@ -40,9 +41,9 @@
     <div class="row">
       <div class="col-sm-2">
         <div id="profile">
-          <img src="img/profile.jpg" alt="">
-          <p id="information"><span id="name"><a href="">トムブラウン</a></span><br>
-            <span><a href="">id:tomtom</a></span></p>
+          <img src="" alt="" class="login_user_profile_img" >
+          <p id="information"><span id="name"><a href="" class="login_user_name"></a></span><br>
+            <span><a href="" class="login_user_id"></a></span></p>
           <!-- <button type="button" class="btn btn-default btn-info header">フォロー</button>
           <button type="button" class="btn btn-default btn-info header">フォロワー</button> -->
         </div>
@@ -58,20 +59,22 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-10">
           <div class="col-sm-1">
-            <span class="btn ttt"><a href="">ツイート</a></span>
+            <span class="btn ttt"><a href="">ツイート<br><span id="tweet_count">0</span></a></span>
           </div>
           <div class="col-sm-1">
-            <span class="btn"><a href="follow.html">フォロー</a></span>
+            <span class="btn"><a href="follow.html">フォロー<br><span id="follow_count">0</span></a></span>
           </div>
           <div class="col-sm-1">
-            <span class="btn"><a href="follower.html">フォロワー</a></span>
+            <span class="btn"><a href="follower.html">フォロワー<br><span id="follower_count">0</span></a></span>
           </div>
           <div class="col-sm-5"></div>
-          <div class="col-sm-1"><button type="button" class="btn btn-default　header">プロフィールを編集</button></div>
+          <div class="col-sm-1"><button type="button" class="btn btn-default header">プロフィールを編集</button></div>
         </div>
       </div>
     </div>
+
     <div class="hea">
+
       <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
@@ -83,108 +86,15 @@
             </div>
             <div class="tui">
               <p class="ter">インドなう</p>
-          </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="der"></div>
-          <div class="tweet">
-            <img src="img/profile.jpg" alt="" class="propro">
-            <div class="uee">
-              <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">id:tomtom</a></span></p>
             </div>
-            <div class="tui">
-              <p class="ter">インドなう</p>
           </div>
+          <div class="col-sm-4"></div>
         </div>
-        <div class="col-sm-4"></div>
-    </div>
       </div>
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="der"></div>
-          <div class="tweet">
-            <img src="img/profile.jpg" alt="" class="propro">
-            <div class="uee">
-              <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">id:tomtom</a></span></p>
-            </div>
-            <div class="tui">
-              <p class="ter">インドなう</p>
-          </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="der"></div>
-          <div class="tweet">
-            <img src="img/profile.jpg" alt="" class="propro">
-            <div class="uee">
-              <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">id:tomtom</a></span></p>
-            </div>
-            <div class="tui">
-              <p class="ter">インドなう</p>
-          </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="der"></div>
-          <div class="tweet">
-            <img src="img/profile.jpg" alt="" class="propro">
-            <div class="uee">
-              <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">id:tomtom</a></span></p>
-            </div>
-            <div class="tui">
-              <p class="ter">インドなう</p>
-          </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="der"></div>
-          <div class="tweet">
-            <img src="img/profile.jpg" alt="" class="propro">
-            <div class="uee">
-              <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">id:tomtom</a></span></p>
-            </div>
-            <div class="tui">
-              <p class="ter">インドなう</p>
-          </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <div class="der"></div>
-          <div class="tweet">
-            <img src="img/profile.jpg" alt="" class="propro">
-            <div class="uee">
-              <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">id:tomtom</a></span></p>
-            </div>
-            <div class="tui">
-              <p class="ter">インドなう</p>
-          </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-      </div>
+
+
     </div>
   </main>
+  <script src="./js/home_get_profile.js"></script>
 </body>
 </html>

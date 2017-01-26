@@ -22,7 +22,7 @@ else    $userId = $_POST['user_id_OR_email'];
 $pdo = db_connect();
 
 $pwd = $_POST['user_pwd'];
-$sql = 'SELECT `user_pwd` FROM `Profile` WHERE ';
+$sql = 'SELECT `id`, `user_pwd` FROM `Profile` WHERE ';
 $stmt = '';
 
 if ($email != ''){
@@ -57,12 +57,7 @@ if (!isset($data['user_pwd']) || $data['user_pwd'] == ''){
         // もし検証がOKならセッション変数にデータ格納
 
         $_SESSION['chk_ssid'] = session_id();
-
-        // $profile = new ProfileData($data['id'],$data['user_id'],$data['user_name'],$data['mail_adrs'],$data['profile_img'],
-        //                            $data['profile_text'], json_decode($data['follwo_ids']), json_decode($data['follwoer_ids']),
-        //                            $data['reg_date'], $data['all_like_count']);
-
-        // $_SESSION['profile_data'] = serialize($profile); 
+        $_SESSION['login_id'] = $data['id'];
 
         echo 'LOGIN_OK';
         exit();
