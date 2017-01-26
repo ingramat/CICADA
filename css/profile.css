@@ -1,0 +1,49 @@
+body{
+  width:80%;
+  margin:0 auto;
+  background: #F5F8FA;
+}
+header{
+  background:#FFF;
+}
+.header{
+  margin-top:10px;
+  margin-left:10px;
+}
+main{
+}
+#profile{
+  margin-top:10px;
+  margin-left:20px;
+  width:210px;
+  height:200px;
+  float:left;
+}
+#information{
+  text-align: center;
+}
+.tweet{
+  margin-left:50%;
+}
+#name{
+  font-size: 20px;
+}
+a:visited:not(.btn) {
+  color:black;
+}
+#detail{
+  margin-top:20px;
+}
+.zaki{
+  margin-top:20px;
+}
+.btn{
+  cursor:pointer;
+}
+#img_pprofile{
+  margin-left:15%;
+  margin-right:15%;
+  /*width:80%;*/
+  height:200px;
+  z-index: -1;
+}

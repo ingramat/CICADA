@@ -1,0 +1,34 @@
+body{
+  width:80%;
+  margin:0 auto;
+  background: #F5F8FA;
+}
+.header{
+  margin-top:10px;
+  margin-left:10px;
+}
+header{
+  background:#FFF;
+}
+#profile{
+  margin-top:10px;
+  margin-left:20px;
+  width:210px;
+  height:200px;
+  float:left;
+}
+#information{
+  text-align: center;
+}
+.tweet{
+  margin-left:50%;
+}
+#name{
+  font-size: 20px;
+}
+a:visited:not(.btn) {
+  color:black;
+}
+#home_jpg{
+  margin-top: 20px;
+}

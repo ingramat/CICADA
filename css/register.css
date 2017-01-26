@@ -17,8 +17,8 @@ img {
 }
 
 .img_preview{
+  margin-left:43%;
   width:200px;
-  border: dotted 2px;
   height:auto;
 
 }
@@ -26,4 +26,7 @@ img {
 .error_message{
   font-weight: bold;
   color:#ff8888;
+}
+#img_preview{
+  border: dotted 2px;
 }
