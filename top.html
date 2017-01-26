@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
   <link href="css/top.css" rel="stylesheet" type="text/css" media="all" />
   <title>CICADA</title>
 </head>
@@ -20,22 +22,31 @@
   <div id="header">
     <div class="row">
       <div class="col-sm-10"></div>
-      <div class="col-sm-1"><button type="button" class="btn btn-default btn-primary">ログイン</button></div>
+      <div class="col-sm-1"><button type="button" class="btn btn-default btn-primary" id="btnLogin">ログイン</button></div>
       <div class="col-sm-1"><button type="button" class="btn btn-default btn-info"><a href="register.html">新規登録</a></button></div>
     </div>
   </div>
 
   <!-- テンプレートを使用(http://codepen.io/miroot/pen/qwIgC) -->
-  <div class="login">
+  <div id ="login_back"></div>
+  <div class="login" id="loginPopUp">
     <div class="login-triangle"></div>
 
     <h2 class="login-header">Log in</h2>
 
-    <form class="login-container">
-      <p><input type="email" placeholder="Email"></p>
-      <p><input type="password" placeholder="Password"></p>
-      <p><input type="submit" value="Log in"></p>
-    </form>
+    <div id="formContainer">
+      <form class="login-container">
+        <p class="has-dangar"><input type="text" placeholder="Email or User ID" id="emailOrUsrId" class="form-control"></p>
+        <p class="has-dangar"><input type="password" placeholder="Password" id="UsrPwd" class="form-control"></p>
+      </form>
+      <button id="btnSubmit" class="btn btn-primary">LOGIN</button>
+      <p id="error_message"></p>
+    </div>
   </div>
+  
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+  <script src="./login.js"></script>
 </body>
 </html>

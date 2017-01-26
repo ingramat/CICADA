@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Class test</title>
+    <link rel="stylesheet" href="./css/common_style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>class test</h1>
+        </header>
+
+        <div class="main">
+            <p id="display"></p>
+            <button id="submit">test!</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        
+
+        // let testData = new ProfileData(1,'test01','test01','test01','test01@tes.ts',null,
+        //                             'test01です。よろしく！',null,[2],'2017-01-19 18:43:52',0);
+
+        $('#submit').on('click',function(ev){
+
+            console.log('pushed');
+
+             $.ajax({
+                type:"GET",
+                url:'../getProfileTest.php',
+                
+                dataType:'JSON',
+                // data:{'profile':JSON.stringify(testData)},
+                success: function(data){
+                    console.log(data);
+                    // console.dir(JSON.parse(data));
+                    // $("#display").append(data);
+                }
+            }).done(function(data){
+                console.dir(data);
+                // console.dir(JSON.parse(data));
+            });
+            
+            // $.ajax({
+            //     type:"POST",
+            //     url:'../class_test.php',
+            //     data:{'profile':JSON.stringify(testData)},
+            //     success: function(data){
+            //         // console.log(data);
+            //         $("#display").append(data);
+            //     }
+            // });   
+
+
+        });
+
+    </script>
+    <!--<scirpt src="../DataClass.js"></scirpt>
+    <scirpt src="../class_test.js"></scirpt>-->
+    
+</body>
+</html>

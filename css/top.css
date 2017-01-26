@@ -15,6 +15,24 @@ video {
   margin-left:50%;
   margin-top:20%;
 }
+
+#login_back{
+  width:100%;
+	height:120%;
+	background-color:rgba(0,0,0,0.75);
+	z-index:1;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	display:none;
+}
+
+#loginPopUp{
+  z-index: 5;
+}
+
 a:visited:not(.btn){
   color:white;
 }
@@ -26,11 +44,18 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .login {
-width: 400px;
+width: 33%;
+position:fixed;
+top:25%;
+left:33%;
 margin: 16px auto;
 font-size: 16px;
 margin-top:15%;
 display: none;
+
+z-index:5;
+	text-align:center;
+	margin:0 auto;
 }
 
 /* Reset top and bottom margins from certain elements */
@@ -59,10 +84,21 @@ text-transform: uppercase;
 color: #fff;
 }
 
-.login-container {
-background: #ebebeb;
+#formContainer{
+  background: #ebebeb;
 padding: 12px;
 }
+
+#error_message{
+  /*font-size: 1.2em;*/
+  font-weight:bold;
+  color:#ff8888;
+}
+
+/*.login-container {
+background: #ebebeb;
+padding: 12px;
+}*/
 
 /* Every row inside .login-container is defined with p tags */
 .login p {

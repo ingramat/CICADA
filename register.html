@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
   <title>CICADA</title>
@@ -19,25 +20,34 @@
 <body>
   <h1>とりあえず登録！</h1>
   <form action="">
-    <div class="form-group">
-      <input type="text" name="id" size="40" placeholder="ID"><br>
+    <div class="form-group" id="registerForm">
+      <input type="text" name="user_id" size="40" placeholder="ユーザーID：必須" class="form-control" id="user_id"><br>
+      <p id="error_user_id" class="error_message"></p>
     </div>
     <div class="form-group">
-      <input type="text" name="address" size="40" placeholder="メールアドレス"><br>
+      <input type="email" name="mail_adrs" size="40" placeholder="メールアドレス：必須" class="form-control" id="mail_adrs"><br>
+      <p id="error_email" class="error_message"></p>
     </div>
     <div class="form-group">
-      <input type="text" name="password" size="40" placeholder="パスワード"><br>
+      <input type="password" name="user_pwd" size="40" placeholder="パスワード：必須" class="form-control" id="user_pwd"><br>
+      <p id="error_user_pwd" class="error_message"></p>
     </div>
     <div class="form-group">
-      <input type="text" name="name" size="40" placeholder="ニックネーム"><br>
+      <input type="text" name="user_name" size="40" placeholder="ニックネーム：必須" class="form-control" id="user_name"><br>
+      <p id="error_user_name" class="error_message"></p>
     </div>
     <div class="form-group">
-      <input type="text" name="introduction" size="40" placeholder="自己紹介"><br>
+      <input type="textarea" name="profile_text" size="40" placeholder="自己紹介文" class="form-control" rows="3" id="profile_text"><br>
+    </div>
+    <div class="img_preview">
+      <img src="" alt="" id="pre_img">
     </div>
     <div class="form-group">
-      <input type="file" size="40" id="file"><br>
+      <input type="file" size="40" id="profile_img" accept="image/*" name="profile_img" class="form-control-file" ><br>
     </div>
-      <input type="submit" value="登録" class="btn-info btn-lg">
   </form>
+  <p id="error_ajax" class="error_message"></p>
+  <button id="btnRegisterInput" class="btn btn-primary">登録する</button>
+  <script src="./register_input.js"></script>
 </body>
 </html>
