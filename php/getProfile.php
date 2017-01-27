@@ -35,7 +35,7 @@ $twCnt = $stmt->fetch(PDO::FETCH_ASSOC);
 // echo var_dump($twCnt['COUNT(*)']);
 // exit();
 
-$profile = new ProfileData($data['id'],$data['user_id'],$data['user_name'],null,$data['mail_adrs'],$data['profile_img'],
+$profile = new Profile($data['id'],$data['user_id'],$data['user_name'],null,$data['mail_adrs'],$data['profile_img'],
                             $data['profile_text'], json_decode($data['follow_ids']), json_decode($data['follower_ids']),
                             $data['reg_date'], $data['all_like_count'],$twCnt['COUNT(*)'],count(json_decode($data['follow_ids'])),
                             count(json_decode($data['follower_ids'])));

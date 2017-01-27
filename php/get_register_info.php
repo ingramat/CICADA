@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id_tmp']) || !isset($_SESSION['user_name_tmp']) ||
         exit();
 }
 
-$profile = new ProfileData(null,$_SESSION['user_id_tmp'],$_SESSION['user_name_tmp'],$_SESSION['user_pwd_tmp'],$_SESSION['mail_adrs_tmp'],
+$profile = new Profile(null,$_SESSION['user_id_tmp'],$_SESSION['user_name_tmp'],$_SESSION['user_pwd_tmp'],$_SESSION['mail_adrs_tmp'],
                            $_SESSION['profile_img'],$_SESSION['profile_text'],$_SESSION['follow_ids'],$_SESSION['follower_ids'],null,0);
 
 

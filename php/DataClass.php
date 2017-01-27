@@ -1,5 +1,5 @@
 <?php
-class ProfileData {
+class Profile {
     public $id;
     public $user_id;
     public $user_name;
@@ -34,6 +34,20 @@ class ProfileData {
         $this->follow_count = $in_follow_count;
         $this->follower_count = $in_follower_count;
     }
+}
+
+class ProfileData {
+    public $profiles = array();
+    public $next_index;
+    public $is_end = false;
+
+    public function __construct($in_profiles=array(),$in_next_index = 0,$in_is_end=false){
+        
+        $this->profiles = $in_profiles;
+        $this->next_index = $in_next_index;
+        $this->is_end = $in_is_end;
+    }
+
 }
 
 

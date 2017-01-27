@@ -48,20 +48,11 @@ $index = intval($_GET['index']);
      FROM (`tweet` JOIN `Profile` AS `t_user` ON `tweet`.`tw_user_id` = `t_user`.`id`) 
      WHERE (`tweet`.`tw_user_id` IN ( ";
 
-//  echo(count(json_decode($_GET['follow'])));
-//  exit();
-    //  $follow_ids = array();
-    //  $follow_ids = json_decode($_GET['follow']);
-    //  自分のID分を追加する。
+    
     $follows = json_decode($_GET['follow']);
-
-    // echo var_dump($follows);
-    // exit();
-    // echo(count(json_decode($_GET['follow'])));
-     $len = count(json_decode($_GET['follow'])) +1;
-
-    //  echo $len;
-    //  exit();
+    
+    //  自分のID分を追加する。
+    $len = count(json_decode($_GET['follow'])) +1;
 
      for ($i=0; $i < $len; $i++){
          $sql = $sql . ":fId$i, ";
@@ -80,9 +71,6 @@ $index = intval($_GET['index']);
      $sql = $sql. ")
      ORDER BY `latest_date` DESC
      LIMIT :start, :numLimit";
-
-    //  echo($sql);
-    //  exit();
 
     $stmt = $pdo->prepare($sql);
 
