@@ -15,6 +15,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="css/follower.css" rel="stylesheet" type="text/css" media="all" />
+        <script type="text/javascript" src="js/style.js"></script>
     <title>CICADA</title>
 </head>
 
@@ -34,7 +35,29 @@
                 </form>
             </div>
             <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-info header">ツイート</button>
+                <div id="modal-overlay"></div>
+                <div id="modal">
+                    <div id="modal-header">
+                        <span>ツイートする
+    </span>
+                        <div id="close">✕</div>
+                    </div>
+                    <div id="modal-content">
+                        <textarea id="tweetarea" name="tweetarea" placeholder="いまどうしてる?" maxlength='300'></textarea>
+                        <div class="tweets btn">
+                            <i class="fa fa-camera" aria-hidden="true" id="camera_icon"></i>
+                            <div id="cnt_text">140</div>
+                            <a href="#">
+                                <button type="" id="tweetbtn" disabled="true">
+          <span>ツイート</span>
+        </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnC"><button type="button" class="btn btn-default btn-info header">ツイート</button>
+                </div>
+
             </div>
         </div>
     </header>
