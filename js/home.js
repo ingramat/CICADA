@@ -1,23 +1,30 @@
 'use strict'
 
-
-
 let temp_tw_section = ` <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <div class="der"></div>
-                    <div class="tweet">
-                        <img src="%profileImg" alt="" class="propro">
-                        <p id="www"><font size="2" color="gray">%retwUserName</font></p>
-                        <div class="uee">
-                            <p class=""><span class="name_h"><a href="">%userName</a></span>
-                            <span class="id_h"><a href="">@%userId</a></span></p>
+                <div class="col-sm-3" id="tes"></div>
+
+                <div class="col-sm-9">
+                    <div class="hea">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-9">
+                                <div class="der"></div>
+                                <div class="tweet">
+                                    <img src="%profileImg" alt="" class="propro">
+                                    <p id="www"><font size="2" color="gray">%retwUserName</font></p>
+                                    <div class="uee">
+                                        <p class=""><span class="name_h"><a href="">%userName</a></span>
+                                        <span class="id_h"><a href="">@%userId</a></span></p>
+                                    </div>
+                                    <div class="tui">
+                                        <p class="ter">%tweetText</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"></div>
                         </div>
-                        <div class="tui">
-                            <p class="ter">%tweetText</p>
-                        </div>
+
                     </div>
-                    <div class="col-sm-4"></div>
                 </div>
             </div>` ;
 
