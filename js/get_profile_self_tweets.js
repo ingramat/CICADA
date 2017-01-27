@@ -67,7 +67,7 @@ $.ajax({
             type:'GET',
             url:'./php/getTweet.php',
             dataType:'JSON',
-            data:{'index':0}
+            data:{'index':0 }
 
         }).done(function(data, textStatus, jqXHR){
             console.log(data);

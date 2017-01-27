@@ -21,7 +21,7 @@ if ($res == false){
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // ツイート数+リツイート数をゲット。
-$sql = "SELECT COUNT(*) FROM `tweet`  WHERE `tw_user_id` = :twUsrId OR `retw_user_id` = :twUsrId";
+$sql = "SELECT COUNT(*) FROM `tweet`  WHERE (`tw_user_id` = :twUsrId AND `retw_user_id` = 0) OR `retw_user_id` = :twUsrId";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':twUsrId',$data['id'],PDO::PARAM_INT);
 $stmt->execute();
@@ -32,7 +32,8 @@ if ($res == false){
 }
 
 $twCnt = $stmt->fetch(PDO::FETCH_ASSOC); 
-
+// echo var_dump($twCnt['COUNT(*)']);
+// exit();
 
 $profile = new ProfileData($data['id'],$data['user_id'],$data['user_name'],null,$data['mail_adrs'],$data['profile_img'],
                             $data['profile_text'], json_decode($data['follow_ids']), json_decode($data['follower_ids']),

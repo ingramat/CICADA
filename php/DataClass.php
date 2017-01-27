@@ -17,7 +17,7 @@ class ProfileData {
 
     public function __construct($in_id=null,$in_user_id=null,$in_user_name=null,$in_user_pwd=null,$in_mail_adrs=null,
                                 $in_profile_img=null,$in_profile_text=null,$in_follow_ids=null,$in_follower_ids=null,
-                                $in_reg_date=null,$in_all_like_count=null,$in_tw_cont=null,$in_follow_count=null,$in_follower_count=null ){
+                                $in_reg_date=null,$in_all_like_count=null,$in_tw_count=null,$in_follow_count=null,$in_follower_count=null ){
 
         $this->id = $in_id;
         $this->user_id = $in_user_id;
