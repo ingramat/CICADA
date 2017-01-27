@@ -94,20 +94,21 @@ $.ajax({
     console.log(data);
 });
 
-    <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-        <div class="der"></div>
-        <div class="tweet">
-        <img src="" alt="" class="propro" name="tw_user_img">
-        <div class="uee">
-            <p class=""><span class="name_h"><a href="" name="tw_user_name" ></a></span>
-            <span class="id_h"><a href="" name="tw_user_id">id:tomtom</a></span></p>
-        </div>
-        <div class="tui">
-            <p class="ter">インドなう</p>
-        </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-    </div>
+
+// let temp_tw_section = `` <div class="row">
+//     <div class="col-sm-4"></div>
+//     <div class="col-sm-4">
+//         <div class="der"></div>
+//         <div class="tweet">
+//         <img src="" alt="" class="propro" name="tw_user_img">
+//         <div class="uee">
+//             <p class=""><span class="name_h"><a href="" name="tw_user_name" ></a></span>
+//             <span class="id_h"><a href="" name="tw_user_id">id:tomtom</a></span></p>
+//         </div>
+//         <div class="tui">
+//             <p class="ter">インドなう</p>
+//         </div>
+//         </div>
+//         <div class="col-sm-4"></div>
+//     </div>
+//     </div>` ;
