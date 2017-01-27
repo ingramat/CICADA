@@ -19,7 +19,7 @@ if (!isset($_GET['index']) || $_GET['index'] == '' ){
 
 $index = intval($_GET['index']);
 
- if (isset($_GET['follow']) || $_GET['follow'] != ''){
+ if (isset($_GET['follow']) && $_GET['follow'] !== ''){
 //     // フォローと自分のツイートを取得する場合は
 
     $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
