@@ -1,32 +1,3 @@
-body {
-    width: 80%;
-    margin: 0 auto;
-    background: #F5F8FA;
-}
-
-header {
-    background: #FFF;
-}
-
-.header {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-main {}
-
-#profile {
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 210px;
-    height: 200px;
-    float: left;
-}
-
-#information {
-    text-align: center;
-}
-
 .tweet {
     /*margin-left:30%;*/
     margin-bottom: 10px;
@@ -39,77 +10,6 @@ main {}
 
 #name {
     font-size: 20px;
-}
-
-body {
-    width: 80%;
-    margin: 0 auto;
-    background: #F5F8FA;
-}
-
-header {
-    background: #FFF;
-}
-
-.header {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-main {}
-
-#profile {
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 210px;
-    height: 200px;
-    float: left;
-}
-
-#information {
-    text-align: center;
-}
-
-.tweet {
-    /*margin-left:30%;*/
-    margin-bottom: 10px;
-    /*text-align: center;*/
-    /*margin-left:50%;*/
-    width: 500px;
-    height: 200px;
-    border: solid #333;
-}
-
-#name {
-    font-size: 20px;
-}
-
-a:visited:not(.btn) {
-    color: black;
-}
-
-#detail {
-    margin-top: 20px;
-}
-
-.zaki {
-    margin-top: 20px;
-}
-
-.btn {
-    cursor: pointer;
-}
-
-#img_pprofile {
-    margin-left: 15%;
-    margin-right: 15%;
-    /*width:80%;*/
-    height: 200px;
-    z-index: -1;
-}
-
-.ttt {
-    border-bottom: #1DA1F2 solid;
 }
 
 .hea {
@@ -140,6 +40,63 @@ a:visited:not(.btn) {
 
 .ter {
     margin-left: 150px;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    background: #F5F8FA;
+}
+
+.header {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+header {
+    background: #FFF;
+}
+
+#profile {
+    margin-top: 10px;
+    margin-left: 20px;
+    /*width:210px;
+  height:200px;*/
+    float: left;
+}
+
+#information {
+    /*text-align: center;*/
+}
+
+.tweet {
+    /*margin-left:50%;*/
+}
+
+#name {
+    font-size: 20px;
+}
+
+a:visited:not(.btn) {
+    color: black;
+}
+
+#home_jpg {
+    margin-top: 20px;
+}
+
+#tes {
+    margin-top: 100px;
+}
+
+.whi {
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+    /*border: thick #ff0000 solid;*/
+    background-color: white;
+    box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
+    -webkit-box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
 }
 
 #modal {
