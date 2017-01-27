@@ -9,8 +9,9 @@ let temp_tw_section = ` <div class="row">
                     <div class="tweet">
                         <img src="%profileImg" alt="" class="propro">
                         <div class="uee">
-                            <p class=""><span class="name_h"><a href="">%userName</a>
-                            </span><span class="id_h"><a href="">id:%userId</a></span></p>
+                            <p class=""><span class="name_h"><a href="">%retwUserName</a></p>
+                            <p class=""><span class="name_h"><a href="">%userName</a></span>
+                            <span class="id_h"><a href="">@%userId</a></span></p>
                         </div>
                         <div class="tui">
                             <p class="ter">%tweetText</p>
@@ -80,6 +81,7 @@ $.ajax({
                 tweets.forEach(function(tweet,index,array){
                     console.dir(tweet);
                     let result = temp_tw_section.replace(/%profileImg/,tweet.tw_profile_img);
+                    result = result.replace(/%retwUserName/,tweet.retw_user_name+'さんがリツイート');
                     result = result.replace(/%userName/,tweet.tw_user_name);
                     result = result.replace(/%userId/,tweet.tw_user_usrId);
                     result = result.replace(/%tweetText/,tweet.tw_text);
