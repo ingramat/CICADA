@@ -35,7 +35,7 @@ class ProfileData {
 }
 
 
-class TweetData {
+class Tweet {
     public $id;
     public $tw_date;
     public $tw_user_id;
@@ -50,6 +50,7 @@ class TweetData {
     public $tw_profile_img;
     public $retw_user_name;
     public $retw_profile_img;
+
 
     public function __construct($in_id=null,$in_tw_date=null,$in_tw_user_id=null,$in_tw_text=null,$in_retw_id=null,$in_retw_user_id=null,
                                 $in_retw_date=null,$in_retw_count=null,$in_tw_img=null,$in_like_count=null,$in_tw_user_name=null,$in_tw_profile_img=null,
@@ -71,5 +72,19 @@ class TweetData {
         $this->retw_profile_img = $in_retw_profile_img;
     }
 
+}
+
+class TweetData{
+
+    public $tweets = array();
+    public $next_index;
+    public $is_end = false;
+
+    public function __construct($in_tweets=array(),$in_next_index = 0,$in_is_end=false){
+        
+        $this->tweets = $in_tweets;
+        $this->next_index = $in_next_index;
+        $this->is_end = $in_is_end;
+    }
 }
 ?>

@@ -2,46 +2,126 @@
 
 session_start();
 include('./common_funcs.php');
-//SessionCheck();
+include('./DataClass.php');
+SessionCheck();
 
-if (!isset($_SESSION['profile'])){
-    //プロファイルデータがまだ取得されていない時はnullを返す。
-    echo null;
+// SQL からTweetを取得する。
+$pdo = db_connect();
+$stmt = null;
+
+$limit = 20;
+
+if (!isset($_GET['index']) || $_GET['index'] == '' ){
+    // インデックスが来てないならエラー
+    echo 'GET_NO_INDEX';
     exit();
 }
 
-$usr_id = $_SESSION['profile']['user_id'];
-$follow_ids = $_SESSION['profile']['follow_ids']; //DBから取得した時にJSONからパースしておく
+$index = intval($_GET['index']);
 
-// SQL からフォローのTweetを取得する。
-$pdo = db_connect();
+ if (isset($_GET['follow']) || $_GET['follow'] != ''){
+//     // フォローのツイートを取得する場合は
 
-$sql = 'SELECT * FROM `tweet`  WHERE `tw_user_id`  IN () OR `retw_id` IN ()';
+    $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
+     `t_user`.`user_name` AS `tw_user_name`,
+     `t_user`.`profile_img` AS `tw_profile_img`, 
+     (CASE `tweet`.`retw_user_id` 
+        WHEN NULL THEN NULL 
+        ELSE (SELECT `user_name` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
+     END) AS `retw_user_name`, 
+     (CASE `tweet`.`retw_user_id` 
+        WHEN NULL THEN NULL 
+        ELSE (SELECT `profile_img` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
+     END) AS `retw_profile_img`, 
+     (CASE 
+        WHEN `tweet`.`tw_date` > `tweet`.`retw_date` THEN `tweet`.`tw_date` 
+        ELSE `tweet`.`retw_date` 
+     END) AS `latest_date` 
+     FROM (`tweet` JOIN `Profile` AS `t_user` ON `tweet`.`tw_user_id` = `t_user`.`id`) 
+     WHERE (`tweet`.`tw_user_id` IN ( ";
 
-for ($i = 0, $len = $follo_ids.length; $i < $len; $i++){
-    $sql +=  $follo_ids[$i] . ', ';
+     $follow_ids = json_decode($_GET['follow']);
+     $len = count($follo_ids);
+
+     for ($i=0; $i < $len; $i++){
+         $sql = $sql . ":fId$i, ";
+     }
+    //  最後の ', 'を削除
+     $sql = substr($sql,0,-2);
+
+     $sql = $sql . " ) AND `tweet`.`retw_user_id` = 0 ) OR `tweet`.`retw_user_id`  IN ( ";
+
+     for ($i=0; $i < $len; $i++){
+         $sql = $sql . ":fId$i, ";
+     }
+     //  最後の ', 'を削除
+     $sql = substr($sql,0,-2);
+
+     $sql = $sql. ")
+     ORDER BY `latest_date` DESC
+     LIMIT :start, :numLimit";
+
+    $stmt = $pdo->prepare($sql);
+
+    for ($i=0; $i < $len; $i++){
+         $stmt->bindValue(":fId$i",$follow_ids[$i],PDO::PARAM_INT);
+    }
+
+} else {
+    // フォローのツイートじゃない場合は、自分のツイートを取得
+    
+    $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
+     `t_user`.`user_name` AS `tw_user_name`,
+     `t_user`.`profile_img` AS `tw_profile_img`, 
+     (CASE `tweet`.`retw_user_id` 
+        WHEN NULL THEN NULL 
+        ELSE (SELECT `user_name` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
+     END) AS `retw_user_name`, 
+     (CASE `tweet`.`retw_user_id` 
+        WHEN NULL THEN NULL 
+        ELSE (SELECT `profile_img` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
+     END) AS `retw_profile_img`, 
+     (CASE 
+        WHEN `tweet`.`tw_date` > `tweet`.`retw_date` THEN `tweet`.`tw_date` 
+        ELSE `tweet`.`retw_date` 
+     END) AS `latest_date` 
+     FROM (`tweet` JOIN `Profile` AS `t_user` ON `tweet`.`tw_user_id` = `t_user`.`id`) 
+     WHERE (`tweet`.`tw_user_id` = :usrId AND `tweet`.`retw_user_id` = 0 ) OR `tweet`.`retw_user_id` = :usrId 
+     ORDER BY `latest_date` DESC
+     LIMIT :start, :numLimit";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':usrId',$_SESSION['login_id'],PDO::PARAM_INT);
+    
+ }
+
+ $stmt->bindValue(':start',$index,PDO::PARAM_INT);
+ $stmt->bindValue(':numLimit',$limit,PDO::PARAM_INT);
+
+
+ if ($stmt->execute()== false){
+    $error = $stmt->errorInfo();
+    exit('SQL Error:'.$error[2]);
 }
 
-$sql =   //最後のカンマを削除
-$sql += ')';
+$tweets = array();
+$cnt = 0;
 
-$stmt = $pdo->prepair($sql);
-$res = $stmt->exec();
+while ($data = $stmt->fetch(PDO::FETCH_ASSOC)){
 
-if ($res == false){
-  $error = $stmt->errorInfo();
- exit('SQL Error:'.$error[2]);
-}
+    $tweets[$cnt] = new Tweet($data['id'],$data['tw_date'],$data['tw_user_id'],$data['tw_text'],
+                        $data['retw_id'],$data['retw_user_id'],$data['retw_date'],$data['retw_count'],$data['tw_img'],
+                        $data['like_count'],$data['tw_user_name'],$data['tw_profile_img'],$data['retw_user_name'],
+                        $data['retw_profile_img']);
 
-$follow_tweets = array();
-$cnt =0;
-while( $data = $stmt->fetch(PDO::FETCH_ASSOC)){
-    
-    $follow_tweets[$cnt] = array('id'=>$data['id'], 'tw_date' => $data['tw_date'], 'tw_user_id' => $data['tw_user_id'],
-                             'tw_text'=>$data['tw_text'], 'retw_id'=>$data['retw_id'],'tw_img'=>$data['tw_img'],
-                             'like_count'=>$data['like_count']);
-    
     $cnt++;
 }
 
+$is_end = false;
+if ($cnt < 20) $is_end = true;
+$index += $cnt;
 
+$tweetData = new TweetData($tweets,$index,$is_end);
+
+echo json_encode($tweetData,JSON_UNESCAPED_UNICODE);
+exit();
