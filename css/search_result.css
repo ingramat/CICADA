@@ -89,8 +89,14 @@ a:visited:not(.btn) {
     margin-top: 100px;
 }
 
-.sub {
-    height: 180px;
+.whi {
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+    /*border: thick #ff0000 solid;*/
+    background-color: white;
+    box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
+    -webkit-box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
 }
 
 #modal {
