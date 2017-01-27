@@ -246,10 +246,12 @@ textarea {
     position: relative;
     right: 80%;
 }
-.login_user_profile_img{
-  width:200px;
-  height:200px;
+
+.login_user_profile_img {
+    width: 200px;
+    height: 200px;
 }
-#www{
-  margin-left:150px;
+
+#www {
+    margin-left: 150px;
 }
