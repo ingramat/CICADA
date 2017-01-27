@@ -74,8 +74,9 @@ $.ajax({
             type:'GET',
             url:'./php/getTweet.php',
             dataType:'JSON',
-            data:{'index':0 }
-
+            data:{'index':0,
+                  'follow':JSON.stringify(data.follow_ids)
+             }
         }).done(function(data, textStatus, jqXHR){
             console.log(data);
             if (typeof data === 'object'){
@@ -83,10 +84,10 @@ $.ajax({
 
                 // ツイート内容の表示
                 let tweets = data.tweets;
-                console.dir(tweets);
+                // console.dir(tweets);
                 // ひとつずつappendして表示
                 tweets.forEach(function(tweet,index,array){
-                    console.dir(tweet);
+                    // console.dir(tweet);
                     let result = temp_tw_section.replace(/%profileImg/,tweet.tw_profile_img);
                     
                     result = result.replace(/%userName/,tweet.tw_user_name);
@@ -98,7 +99,7 @@ $.ajax({
                     // そうじゃなければカラ文字
                     else result = result.replace(/%retwUserName/,'');
 
-                    console.log(result);
+                    // console.log(result);
 
                     $('#tweets_container').append(result);
 
@@ -115,4 +116,35 @@ $.ajax({
 
 }).fail(function(data, textStatus, jqXHR){
     console.log(data);
+});
+
+
+
+// 検索ボタンをした時
+
+$('#btnSearch').on('click',function(ev){
+
+    let searchString = $('#inputSearch').val();
+
+    if (!searchString) return;
+    // 検索文字列がないなら戻る。
+
+    // 文字列を空白で区切って
+    let searchQueries = searchString.split(' ');
+
+    $.ajax({
+        type:'GET',
+        url:'./php/getProfile.php',
+        dataType:'JSON',
+        data:{
+            'search_queries':JSON.stringify(searchQueries)
+        }
+    }).done(function(data, textStatus, jqXHR){
+
+
+
+    }).fail(function(data, textStatus, jqXHR){
+
+    });
+
 });

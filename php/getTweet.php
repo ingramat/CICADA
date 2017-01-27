@@ -22,6 +22,9 @@ $index = intval($_GET['index']);
  if (isset($_GET['follow']) && $_GET['follow'] !== ''){
 //     // フォローと自分のツイートを取得する場合は
 
+// echo $_GET['follow'];
+// exit();
+
     $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
      `t_user`.`user_name` AS `tw_user_name`,
      `t_user`.`user_id` AS `tw_user_usrId`,
@@ -45,9 +48,20 @@ $index = intval($_GET['index']);
      FROM (`tweet` JOIN `Profile` AS `t_user` ON `tweet`.`tw_user_id` = `t_user`.`id`) 
      WHERE (`tweet`.`tw_user_id` IN ( ";
 
-     $follow_ids = json_decode($_GET['follow']);
+//  echo(count(json_decode($_GET['follow'])));
+//  exit();
+    //  $follow_ids = array();
+    //  $follow_ids = json_decode($_GET['follow']);
     //  自分のID分を追加する。
-     $len = count($follo_ids)+1;
+    $follows = json_decode($_GET['follow']);
+
+    // echo var_dump($follows);
+    // exit();
+    // echo(count(json_decode($_GET['follow'])));
+     $len = count(json_decode($_GET['follow'])) +1;
+
+    //  echo $len;
+    //  exit();
 
      for ($i=0; $i < $len; $i++){
          $sql = $sql . ":fId$i, ";
@@ -67,12 +81,15 @@ $index = intval($_GET['index']);
      ORDER BY `latest_date` DESC
      LIMIT :start, :numLimit";
 
+    //  echo($sql);
+    //  exit();
+
     $stmt = $pdo->prepare($sql);
 
     for ($i=0; $i < $len; $i++){
 
         // まずはフォローを格納
-        if($i < $len -1)    $stmt->bindValue(":fId$i",$follow_ids[$i],PDO::PARAM_INT);
+        if($i < $len -1)    $stmt->bindValue(":fId$i",$follows[$i],PDO::PARAM_INT);
         // 最後に自分のIDを格納
         else    $stmt->bindValue(":fId$i",$_SESSION['login_id'],PDO::PARAM_INT);
     }

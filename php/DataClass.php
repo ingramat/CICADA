@@ -26,6 +26,8 @@ class ProfileData {
         $this->mail_adrs = $in_mail_adrs;
         $this->profile_img = $in_profile_img;
         $this->profile_text = $in_profile_text;
+        $this->follow_ids = $in_follow_ids;
+        $this->follower_ids = $in_follower_ids;
         $this->reg_date = $in_reg_date;
         $this->all_like_count = $in_all_like_count;
         $this->tw_count = $in_tw_count;
