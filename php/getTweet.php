@@ -20,7 +20,7 @@ if (!isset($_GET['index']) || $_GET['index'] == '' ){
 $index = intval($_GET['index']);
 
  if (isset($_GET['follow']) || $_GET['follow'] != ''){
-//     // フォローのツイートを取得する場合は
+//     // フォローと自分のツイートを取得する場合は
 
     $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
      `t_user`.`user_name` AS `tw_user_name`,
@@ -46,7 +46,8 @@ $index = intval($_GET['index']);
      WHERE (`tweet`.`tw_user_id` IN ( ";
 
      $follow_ids = json_decode($_GET['follow']);
-     $len = count($follo_ids);
+    //  自分のID分を追加する。
+     $len = count($follo_ids)+1;
 
      for ($i=0; $i < $len; $i++){
          $sql = $sql . ":fId$i, ";
@@ -69,7 +70,11 @@ $index = intval($_GET['index']);
     $stmt = $pdo->prepare($sql);
 
     for ($i=0; $i < $len; $i++){
-         $stmt->bindValue(":fId$i",$follow_ids[$i],PDO::PARAM_INT);
+
+        // まずはフォローを格納
+        if($i < $len -1)    $stmt->bindValue(":fId$i",$follow_ids[$i],PDO::PARAM_INT);
+        // 最後に自分のIDを格納
+        else    $stmt->bindValue(":fId$i",$_SESSION['login_id'],PDO::PARAM_INT);
     }
 
 } else {
