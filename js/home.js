@@ -108,6 +108,9 @@ $.ajax({
 
         }).fail(function(data, textStatus, jqXHR){
             console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+            window.location.href = './session_error.html';
         });
         
     } else {
@@ -116,6 +119,9 @@ $.ajax({
 
 }).fail(function(data, textStatus, jqXHR){
     console.log(data);
+    console.dir(textStatus);
+    console.dir(jqXHR);
+    window.location.href = './session_error.html';
 });
 
 

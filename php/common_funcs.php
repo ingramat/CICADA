@@ -7,8 +7,8 @@ function h($val){
 
 function SessionCheck(){
     if (!isset($_SESSION['chk_ssid']) || $_SESSION['chk_ssid'] != session_id() ){
-        header('Location:./session_error.html');
-        exit;
+        header('Location:../session_error.html',302);
+        exit();
     } else {
         session_regenerate_id(true);
         $_SESSION['chk_ssid'] = session_id();
