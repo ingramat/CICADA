@@ -24,11 +24,16 @@ $index = intval($_GET['index']);
 
     $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
      `t_user`.`user_name` AS `tw_user_name`,
+     `t_user`.`user_id` AS `tw_user_usrId`,
      `t_user`.`profile_img` AS `tw_profile_img`, 
      (CASE `tweet`.`retw_user_id` 
         WHEN NULL THEN NULL 
         ELSE (SELECT `user_name` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
      END) AS `retw_user_name`, 
+     (CASE `tweet`.`retw_user_id` 
+        WHEN NULL THEN NULL 
+        ELSE (SELECT `user_id` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
+     END) AS `retw_user_usrId`, 
      (CASE `tweet`.`retw_user_id` 
         WHEN NULL THEN NULL 
         ELSE (SELECT `profile_img` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
@@ -72,11 +77,16 @@ $index = intval($_GET['index']);
     
     $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
      `t_user`.`user_name` AS `tw_user_name`,
+     `t_user`.`user_id` AS `tw_user_usrId`,
      `t_user`.`profile_img` AS `tw_profile_img`, 
      (CASE `tweet`.`retw_user_id` 
         WHEN NULL THEN NULL 
         ELSE (SELECT `user_name` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
-     END) AS `retw_user_name`, 
+     END) AS `retw_user_name`,
+     (CASE `tweet`.`retw_user_id` 
+        WHEN NULL THEN NULL 
+        ELSE (SELECT `user_id` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
+     END) AS `retw_user_usrId`, 
      (CASE `tweet`.`retw_user_id` 
         WHEN NULL THEN NULL 
         ELSE (SELECT `profile_img` FROM `Profile` WHERE `tweet`.`retw_user_id`=`Profile`.`id`) 
@@ -111,8 +121,8 @@ while ($data = $stmt->fetch(PDO::FETCH_ASSOC)){
 
     $tweets[$cnt] = new Tweet($data['id'],$data['tw_date'],$data['tw_user_id'],$data['tw_text'],
                         $data['retw_id'],$data['retw_user_id'],$data['retw_date'],$data['retw_count'],$data['tw_img'],
-                        $data['like_count'],$data['tw_user_name'],$data['tw_profile_img'],$data['retw_user_name'],
-                        $data['retw_profile_img']);
+                        $data['like_count'],$data['tw_user_name'],$data['tw_user_usrId'],$data['tw_profile_img'],
+                        $data['retw_user_name'],$data['retw_user_usrId'],$data['retw_profile_img']);
 
     $cnt++;
 }
