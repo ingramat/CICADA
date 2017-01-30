@@ -2,7 +2,7 @@
 
 
 
-let temp_tw_section = ` <div class="row">
+let temp_tw_section = `<div class="row">
                 <div class="col-sm-3" id="tes"></div>
 
                 <div class="col-sm-9">
@@ -21,7 +21,9 @@ let temp_tw_section = ` <div class="row">
                                     <div class="tui">
                                         <p class="ter">%tweetText</p>
                                     </div>
-                                    <img src="%twImg" alt="" class="propro img_rounded" style="display:%imgdisp;">
+                                    <img src="%twImg" alt="" class="propro img-rounded" style="display:%imgdisp;">
+                                    <input type="hidden" value="%twId">
+                                    <button class="btn btn-info" id="rewteet">リツイート</button>
                                 </div>
                             </div>
                             <div class="col-sm-1"></div>
@@ -30,7 +32,6 @@ let temp_tw_section = ` <div class="row">
                     </div>
                 </div>
             </div>` ;
-
 
 // プロファイルデータをGET
 
@@ -95,6 +96,7 @@ $.ajax({
                     result = result.replace(/%userName/,tweet.tw_user_name);
                     result = result.replace(/%userId/,tweet.tw_user_usrId);
                     result = result.replace(/%tweetText/,tweet.tw_text);
+                    result = result.replace(/%twId/,tweet.id);
 
                     if (tweet.tw_img){
                         // 写真があるなら
