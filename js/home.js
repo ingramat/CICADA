@@ -14,7 +14,7 @@ let temp_tw_section = `<div class="row">
                                         <i class="fa fa-retweet" aria-hidden="true" id="retweeted"></i>
                                         <p class="retweet"><font size="2" color="gray">%retwUserName</font></p>
                                     </div>
-                                    <p id="retweet_text" class="retweet" style="display:%retwDsp">%retw_text</p>
+                                    <p id="retweet_text" class="retweet" style="display:%retwDsp">%retwText</p>
                                     <img src="%profileImg" alt="" class="propro img-rounded">
                                     <div class="uee">
                                         <p class=""><span class="name_h"><a href="">%userName</a></span>
@@ -204,7 +204,7 @@ $('#tw_img_file').on('change',function(ev){
 
     fileReader.onload = function(){
         let dataUri = this.result;
-        $('#pre_img').prop('src',dataUri);
+        $('#tw_pre_img').prop('src',dataUri);
     };
 
     fileReader.readAsDataURL(file);
@@ -242,13 +242,13 @@ $('#tweetbtn').on('click',function(ev){
             
     
         } else if (data === 'FILE_INVALID'){
-            $('#error_ajax').text('無効なファイル形式です。');
+            $('#error_ajax_tw').text('無効なファイル形式です。');
         }else {
-            $('#error_ajax').text('登録できませんでした。');
+            $('#error_ajax_tw').text('登録できませんでした。');
         }
 
     }).fail(function(jqXHR, textStatus, errorThrown){
-        $('#error_ajax').text('サーバーとの通信に失敗しています。');
+        $('#error_ajax_tw').text('サーバーとの通信に失敗しています。');
     });
 
 });

@@ -1,27 +1,27 @@
 $(function() {
     // Modal ON event
     $('.btnC').on('click', function() {
-        $('#modal-overlay').fadeIn();
-        $('#modal').fadeIn();
+        $('#tw_pop_back').fadeIn();
+        $('#tw_pop').fadeIn();
         // Modal OFF event
-        $('#modal-overlay').on("click", function() {
+        $('#tw_pop_back').on("click", function() {
              $('#tweetarea').val('');
             $('#tw_img_file').val('');
-            $('#pre_img').prop('src','');
-            $('#modal-overlay').fadeOut();
-            $('#modal').fadeOut();
+            $('#tw_pre_img').prop('src','');
+            $('#tw_pop_back').fadeOut();
+            $('#tw_pop').fadeOut();
             $('#tweetbtn').prop('disabled', true);
             $('#cnt_text').text('140');
         });
     });
 
     // Modal OFF event
-    $("#close").on("click", function() {
+    $("#tw_close").on("click", function() {
         $('#tweetarea').val('');
         $('#tw_img_file').val('');
-        $('#pre_img').prop('src','');
-        $('#modal-overlay').fadeOut();
-        $('#modal').fadeOut();
+        $('#tw_pre_img').prop('src','');
+        $('#tw_pop_back').fadeOut();
+        $('#tw_pop').fadeOut();
         $('#tweetbtn').prop('disabled', true);
         $('#cnt_text').text('140');
     });

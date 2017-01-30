@@ -93,7 +93,7 @@ a:visited:not(.btn) {
     height: 180px;
 }
 
-#modal {
+.modal {
     width: 50%;
     height: 220px;
     z-index: 5;
@@ -108,7 +108,7 @@ a:visited:not(.btn) {
     border-radius: 15px;
 }
 
-#modal-overlay {
+.modal-overlay {
     width: 100%;
     height: 120%;
     background-color: rgba(0, 0, 0, 0.75);
@@ -121,7 +121,7 @@ a:visited:not(.btn) {
     display: none;
 }
 
-#modal-header {
+.modal-header {
     color: #8899a6;
     height: 40px;
     border-top-left-radius: 15px;
@@ -130,12 +130,12 @@ a:visited:not(.btn) {
     text-align: center;
 }
 
-#modal-header span {
+.modal-header span {
     position: relative;
     top: 20%;
 }
 
-#modal-content {
+#tw_modal-content {
     position: relative;
     top: 10%;
 }
@@ -164,14 +164,14 @@ a:visited:not(.btn) {
     font-size: 14px;
 }
 
-#cnt_text {
+#tw_cnt_text {
     display: inline-block;
     position:relative;
     left:65%;
     top:50%;
 }
 
-#close {
+#tw_close {
     float: right;
     position: relative;
     right: 3%;
