@@ -10,7 +10,7 @@ let temp_tw_section = ` <div class="row">
                             <div class="col-sm-9">
                                 <div class="der"></div>
                                 <div class="tweet">
-                                    <img src="%profileImg" alt="" class="propro">
+                                    <img src="%profileImg" alt="" class="propro img_rounded">
                                     <p id="www"><font size="2" color="gray">%retwUserName</font></p>
                                     <div class="uee">
                                         <p class=""><span class="name_h"><a href="">%userName</a></span>
@@ -40,6 +40,8 @@ $.ajax({
     console.log(data);
     if (typeof data === 'object'){
         //オブジェクトで帰ってきてたら
+
+        // 自己プロフィール情報に埋め込む
 
         //イメージ画像の指定
         $('.login_user_profile_img').each(function(){
@@ -129,28 +131,23 @@ $.ajax({
 // 検索ボタンをした時
 
 $('#btnSearch').on('click',function(ev){
+    console.log('clicked');
+
+    ev.preventDefault();
 
     let searchString = $('#inputSearch').val();
 
-    if (!searchString) return;
+    if (!searchString) return false;
     // 検索文字列がないなら戻る。
 
     // 文字列を空白で区切って
     let searchQueries = searchString.split(' ');
 
-    $.ajax({
-        type:'GET',
-        url:'./php/getProfile.php',
-        dataType:'JSON',
-        data:{
-            'search_queries':JSON.stringify(searchQueries)
-        }
-    }).done(function(data, textStatus, jqXHR){
+    // 検索キーワードをセッションストレージに格納
+    sessionStorage.setItem('searchQueries',JSON.stringify(searchQueries));
 
-
-
-    }).fail(function(data, textStatus, jqXHR){
-
-    });
-
+    console.dir(searchQueries);
+    
+    // 検索ページに飛ぶ
+    window.location.href = './search_result.html';
 });

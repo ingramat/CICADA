@@ -26,8 +26,8 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
 
     // sqlクエリ用の変数代入先文字列を生成
     $prePara = '';
-    for ($i = 0; $i < $len; $i++){
-        $prePara = $prePara . "%:word$i% AND";
+    for ($i = 0; $i < $qlen; $i++){
+        $prePara = $prePara . ":word$i AND";
     }
     //  最後の 'AND'を削除
     $prePara = substr($prePara,0,-3);
@@ -35,7 +35,7 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
     // ユーザ名、ユーザIDからの検索
     $pdo = db_connect();
 
-    $sql = "SELECT * FROM `Profile` WHERE `user_id` LIKE ".$prePara." '%test%' OR `user_name` LIKE ".$prePara
+    $sql = "SELECT * FROM `Profile` WHERE `user_id` LIKE ".$prePara." OR `user_name` LIKE ".$prePara
         ." LIMIT :index, :numLimit";
     
     // セッション変数に検索クエリを保存しておく
@@ -56,8 +56,8 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
 }
 
 $stmt = $pdo->prepare($sql);
-for($i=0; $i < $len; $i++){
-    $stmt->bindValue(":word$i",$queryWord[$i],PDO::PARAM_STR);
+for($i=0; $i < $qlen; $i++){
+    $stmt->bindValue(":word$i","%".$queryWords[$i]."%",PDO::PARAM_STR);
 }
 
 $stmt->bindValue(':index',$index,PDO::PARAM_INT);
