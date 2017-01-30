@@ -108,6 +108,8 @@ a:visited:not(.btn) {
     -webkit-box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
 }
 
+
+
 #modal {
     width: 50%;
     height: 220px;
@@ -158,11 +160,13 @@ a:visited:not(.btn) {
 #tweetbtn {
     display: inline-block;
     height: 40px;
-    width: 112px;
+    width: 20%;
     border-radius: 5px;
     border: none;
     background-color: #007DAB;
     cursor: pointer;
+    position: absolute;
+    right:5%;
 }
 
 #tweetbtn:disabled {
@@ -179,6 +183,9 @@ a:visited:not(.btn) {
 
 #cnt_text {
     display: inline-block;
+    position:relative;
+    left:65%;
+    top:50%;
 }
 
 #close {
@@ -209,6 +216,31 @@ textarea {
 }
 
 #camera_icon {
-    position: relative;
-    right: 80%;
+    position: absolute;
+    left: 50%;
+    top:50%;
+}
+
+#camera_icon:hover{
+    color:#ff8888;
+    cursor: pointer;
+}
+
+.row_child {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+}
+
+.img_preview{
+    width:30%;
+    height:50px;
+    position:absolute;
+    left:5%;
+    top:10%;
+}
+
+.img_preview img{
+    width:auto;
+    max-height:100%;
 }
