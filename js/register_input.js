@@ -99,7 +99,7 @@ $('#btnRegisterInput').on('click',function(ev){
         console.log('profile text exists');
         formData.append($('#profile_text').prop('name'),$('#profile_text').val());
     }
-    // 
+    // ファイルがあれば、formdataにセット
     if($('#profile_img').val() && $('#profile_img').val() !== ''){
         console.log('file exists');
         formData.append($('#profile_img').prop('name'),$('#profile_img').prop('files')[0]);

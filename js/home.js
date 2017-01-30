@@ -151,3 +151,65 @@ $('#btnSearch').on('click',function(ev){
     // 検索ページに飛ぶ
     window.location.href = './search_result.html';
 });
+
+
+
+// ツイート画像が選択された時
+$('#tw_img_file').on('change',function(ev){
+    console.log('selected');
+    // console.log($('#profile_img').val());
+    console.dir(ev);
+    let file = ev.currentTarget.files[0];
+    console.dir(file);
+    let fileReader = new FileReader();
+
+    fileReader.onload = function(){
+        let dataUri = this.result;
+        $('#pre_img').prop('src',dataUri);
+    };
+
+    fileReader.readAsDataURL(file);
+});
+
+//ツイートをするとき
+$('#tweetbtn').on('click',function(ev){
+
+    // ツイート内容が空なら何もしない
+    if (!$('#tweetarea').val() || $('#tweetarea').val() === '') return;   
+
+    let formData = new FormData();
+
+    formData.append($('#tweetarea').prop('name'),$('#tweetarea').val());
+    
+    // ファイルがあれば、formdataにセット
+    if($('#tw_img_file').val() && $('#tw_img_file').val() !== ''){
+        console.log('file exists');
+        formData.append($('#tw_img_file').prop('name'),$('#tw_img_file').prop('files')[0]);
+    }
+
+    $.ajax({
+        type:'POST',
+        url:'./php/tweet.php',
+        data:formData,
+        cache       : false,
+        contentType : false,
+        processData : false
+
+    }).done(function(data, textStatus, jqXHR){
+        console.log(data);
+        if (data === 'RECEIVE_OK'){
+            // 送信OKならリフレッシュ
+            window.location.href = './home.html';
+            
+        
+        } else if (data === 'ALREADY_EXISTS'){
+            $('#error_ajax').text('そのユーザー名もしくはメールアドレスはすでに登録されています。');
+        } else {
+            $('#error_ajax').text('登録できませんでした。');
+        }
+
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        $('#error_ajax').text('サーバーとの通信に失敗しています。');
+    });
+
+});

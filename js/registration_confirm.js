@@ -69,3 +69,7 @@ $('#btnRegistConfirm').on('click',function(ev){
     });
 
 });
+
+$('$btnReturn').on('click',function(ev){
+    window.location.href = './register.html';
+});
