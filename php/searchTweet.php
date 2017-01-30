@@ -23,12 +23,13 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
     $queryWords = json_decode($_GET['search_queries']);
 
     $qlen = count($queryWords);
-
+        
     // sqlクエリ用の変数代入先文字列を生成
     $prePara = '';
-    for ($i = 0; $i < $len; $i++){
-        $prePara = $prePara . "%:word$i% AND";
+    for ($i = 0; $i < $qlen; $i++){
+        $prePara = $prePara . ":word$i AND";
     }
+
     //  最後の 'AND'を削除
     $prePara = substr($prePara,0,-3);
 
@@ -56,10 +57,11 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
             ELSE `tweet`.`retw_date` 
         END) AS `latest_date` 
         FROM (`tweet` JOIN `Profile` AS `t_user` ON `tweet`.`tw_user_id` = `t_user`.`id`) 
-        WHERE `tweet_text` LIKE ".$prePara."
+        WHERE `tw_text` LIKE ".$prePara."
         ORDER BY `latest_date` DESC
-        LIMIT :start, :numLimit";
+        LIMIT :index, :numLimit";
     
+
     // セッション変数に検索クエリを保存しておく
     $_SESSION['search_tweet_prepare_sql'] = $sql;
     $_SESSION['search_queries'] = $_GET['search_queries'];
@@ -78,9 +80,10 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
 }
 
 $stmt = $pdo->prepare($sql);
-for($i=0; $i < $len; $i++){
-    $stmt->bindValue(":word$i",$queryWord[$i],PDO::PARAM_STR);
+for($i=0; $i < $qlen; $i++){
+    $stmt->bindValue(":word$i",'%'.$queryWords[$i].'%',PDO::PARAM_STR);
 }
+
 
 $stmt->bindValue(':index',$index,PDO::PARAM_INT);
 $stmt->bindValue(':numLimit',$limit,PDO::PARAM_INT);

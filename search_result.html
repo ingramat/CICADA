@@ -38,8 +38,7 @@
                 <div id="modal-overlay"></div>
                 <div id="modal">
                     <div id="modal-header">
-                        <span>ツイートする
-    </span>
+                        <span>ツイートする</span>
                         <div id="close">✕</div>
                     </div>
                     <div id="modal-content">
@@ -49,8 +48,8 @@
                             <div id="cnt_text">140</div>
                             <a href="#">
                                 <button type="" id="tweetbtn" disabled="true">
-          <span>ツイート</span>
-        </button>
+                                    <span>ツイート</span>
+                                </button>
                             </a>
                         </div>
                     </div>
@@ -60,112 +59,29 @@
 
             </div>
         </div>
+        <div class="row bg-primary center-block" id="search_word">
+            <div class="col-sm-4"></div>
+            <h3 class=" col-sm-4 text-center" id="display_search_word"></h3>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row bg-danger center-block" id="search_error">
+            <div class="col-sm-4"></div>
+            <h3 class="text-danger col-sm-4 text-center">検索エラーが発生しました！</h3>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row bg-info center-block search_result_select_row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-2"><button class="btn btn-primary" id="btn_search_tweet">ツイート</button></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"><button class="btn btn-primary" id="btn_search_profile" >アカウント</button></div>
+            <div class="col-sm-3"></div>
+        </div>
+        
     </header>
     <main>
-        <!-- <section id="profile"> -->
-        <div class="row">
-            <div class="col-sm-2">
-            </div>
-
-            <div class="col-sm-10">
-                <div class="row">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
-                            <div class="col-sm-6">
-                                <div class="profile whi">
-                                    <img src="img/bob.jpg" alt="" width="200" height="200">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <p id="information"><span id="name"><a href="">ボブ</a></span><br>
-                                                <span><a href="">@bob</a></span></p>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-default">フォローする</button>
-                                        </div>
-                                    </div>
-                                    <p>みんなのアイドル、ボブだよ！</p>
-                                    <!-- <img src="img/home.jpg" alt="" id="home_jpg"> -->
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="profile whi" class="w" width="200" height="200">
-                                    <img src="img/bob.jpg" alt="">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <p id="information"><span id="name"><a href="">ボブ</a></span><br>
-                                                <span><a href="">@bob</a></span></p>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-default">フォローする</button>
-                                        </div>
-                                    </div>
-                                    <p>みんなのアイドル、ボブだよ！</p>
-                                    <!-- <img src="img/home.jpg" alt="" id="home_jpg"> -->
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-2"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- </section> -->
-        </div>
-
-        <div class="row">
-            <div class="col-sm-3" id="tes"></div>
-
-            <div class="col-sm-9">
-                <div class="hea">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-9">
-                            <div class="der"></div>
-                            <div class="tweet">
-                                <img src="img/bob.jpg" alt="" class="propro">
-                                <div class="uee">
-                                    <p class=""><span class="name_h"><a href="">ボブ</a></span><span class="id_h"><a href="">@bob</a></span></p>
-                                </div>
-                                <div class="tui">
-                                    <p class="ter">僕はボブだよ！</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1"></div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3" id="tes"></div>
-
-            <div class="col-sm-9">
-                <div class="hea">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-9">
-                            <div class="der"></div>
-                            <div class="tweet">
-                                <img src="img/bob.jpg" alt="" class="propro">
-                                <div class="uee">
-                                    <p class=""><span class="name_h"><a href="">ボブ</a></span><span class="id_h"><a href="">@bob</a></span></p>
-                                </div>
-                                <div class="tui">
-                                    <p class="ter">僕はボブだよ！</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1"></div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+       
     </main>
+    <script src="./js/search_result.js"></script>
 </body>
 
 </html>

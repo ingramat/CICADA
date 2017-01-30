@@ -42,6 +42,11 @@
     margin-left: 150px;
 }
 
+.search_result_select_row{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
 body {
     width: 80%;
     margin: 0 auto;
@@ -63,6 +68,10 @@ header {
     /*width:210px;
   height:200px;*/
     float: left;
+}
+
+#search_error{
+    display:none;
 }
 
 #information {
