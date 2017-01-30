@@ -213,7 +213,9 @@ $('#tweetbtn').on('click',function(ev){
             window.location.href = './home.html';
             
     
-        } else {
+        } else if (data === 'FILE_INVALID'){
+            $('#error_ajax').text('無効なファイル形式です。');
+        }else {
             $('#error_ajax').text('登録できませんでした。');
         }
 

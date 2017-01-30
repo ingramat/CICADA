@@ -5,20 +5,30 @@ $(function() {
         $('#modal').fadeIn();
         // Modal OFF event
         $('#modal-overlay').on("click", function() {
+             $('#tweetarea').val('');
+            $('#tw_img_file').val('');
+            $('#pre_img').prop('src','');
             $('#modal-overlay').fadeOut();
             $('#modal').fadeOut();
+            $('#tweetbtn').prop('disabled', true);
+            $('#cnt_text').text('140');
         });
     });
 
     // Modal OFF event
     $("#close").on("click", function() {
+        $('#tweetarea').val('');
+        $('#tw_img_file').val('');
+        $('#pre_img').prop('src','');
         $('#modal-overlay').fadeOut();
         $('#modal').fadeOut();
+        $('#tweetbtn').prop('disabled', true);
+        $('#cnt_text').text('140');
     });
 
     //Count text
     $('#tweetarea').on('keydown keyup change', function() {
-        var count = $(this).val().length;
+        let count = $(this).val().length;
         count = 140 - count;
         $('#cnt_text').text(count);
         if (count < 140 && count > 0) {
