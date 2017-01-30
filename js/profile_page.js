@@ -3,21 +3,31 @@
 
 
 let temp_tw_section = ` <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <div class="der"></div>
-                    <div class="tweet">
-                        <img src="%profileImg" alt="" class="propro">
-                        <p id="www"><font size="2" color="gray">%retwUserName</font></p>
-                        <div class="uee">
-                            <p class=""><span class="name_h"><a href="">%userName</a></span>
-                            <span class="id_h"><a href="">@%userId</a></span></p>
+                <div class="col-sm-3" id="tes"></div>
+
+                <div class="col-sm-9">
+                    <div class="hea">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-9">
+                                <div class="der"></div>
+                                <div class="tweet">
+                                    <img src="%profileImg" alt="" class="propro img_rounded">
+                                    <p id="www"><font size="2" color="gray">%retwUserName</font></p>
+                                    <div class="uee">
+                                        <p class=""><span class="name_h"><a href="">%userName</a></span>
+                                        <span class="id_h"><a href="">@%userId</a></span></p>
+                                    </div>
+                                    <div class="tui">
+                                        <p class="ter">%tweetText</p>
+                                    </div>
+                                    <img src="%twImg" alt="" class="propro img_rounded" style="display:%imgdisp;">
+                                </div>
+                            </div>
+                            <div class="col-sm-1"></div>
                         </div>
-                        <div class="tui">
-                            <p class="ter">%tweetText</p>
-                        </div>
+
                     </div>
-                    <div class="col-sm-4"></div>
                 </div>
             </div>` ;
 
@@ -85,6 +95,15 @@ $.ajax({
                     result = result.replace(/%userName/,tweet.tw_user_name);
                     result = result.replace(/%userId/,tweet.tw_user_usrId);
                     result = result.replace(/%tweetText/,tweet.tw_text);
+
+                    if (tweet.tw_img){
+                        // 写真があるなら
+                        result = result.replace(/%twImg/,tweet.tw_img);
+                        result = result.replace(/%imgdisp/,'inline');
+                    } else {
+                        result = result.replace(/%twImg/,'./tw_imgs/noimg.png');
+                        result = result.replace(/%imgdisp/,'none');
+                    }
 
                     //リツイートだったときは、リツイートした人の名前を表示
                     if (tweet.retw_user_name !== null)  result = result.replace(/%retwUserName/,tweet.retw_user_name+'さんがリツイート');

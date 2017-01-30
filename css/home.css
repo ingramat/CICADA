@@ -227,3 +227,8 @@ textarea {
     width:auto;
     max-height:100%;
 }
+
+.error_message {
+    font-weight: bold;
+    color: #ff8888;
+}
