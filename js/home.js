@@ -10,8 +10,12 @@ let temp_tw_section = `<div class="row">
                             <div class="col-sm-9">
                                 <div class="der"></div>
                                 <div class="tweet">
-                                    <img src="%profileImg" alt="" class="propro img_rounded">
-                                    <p id="www"><font size="2" color="gray">%retwUserName</font></p>
+                                    <div class="row_child retweet" id="retweeted_container" style="display:%retwDsp">
+                                        <i class="fa fa-retweet" aria-hidden="true" id="retweeted"></i>
+                                        <p class="retweet"><font size="2" color="gray">%retwUserName</font></p>
+                                    </div>
+                                    <p id="retweet_text" class="retweet" style="display:%retwDsp">%retw_text</p>
+                                    <img src="%profileImg" alt="" class="propro img-rounded">
                                     <div class="uee">
                                         <p class=""><span class="name_h"><a href="">%userName</a></span>
                                         <span class="id_h"><a href="">@%userId</a></span></p>
@@ -21,7 +25,10 @@ let temp_tw_section = `<div class="row">
                                     </div>
                                     <img src="%twImg" alt="" class="propro img-rounded" style="display:%imgdisp;">
                                     <input type="hidden" value="%twId">
-                                    <button class="btn btn-info" id="rewteet">リツイート</button>
+                                    <div class="row_child retweet">
+                                        <span class="fa fa-retweet" aria-hidden="true" id="retweet_icon"></span>
+                                        <p id="retweet_count">%retweetCount</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-1"></div>
@@ -99,6 +106,7 @@ $.ajax({
                     result = result.replace(/%userId/,tweet.tw_user_usrId);
                     result = result.replace(/%tweetText/,tweet.tw_text);
                     result = result.replace(/%twId/,tweet.id);
+                    result = result.replace(/%retweetCount/,tweet.retw_count);
 
                     if (tweet.tw_img){
                         // 写真があるなら
@@ -110,10 +118,27 @@ $.ajax({
                     }
                     
 
-                    //リツイートだったときは、リツイートした人の名前を表示
-                    if (tweet.retw_user_name !== null)  result = result.replace(/%retwUserName/,tweet.retw_user_name+'さんがリツイート');
-                    // そうじゃなければカラ文字
-                    else result = result.replace(/%retwUserName/,'');
+                    //リツイートだったときは、リツイートした人のとコメントを表示
+                    if (tweet.retw_user_name !== null){
+                        result = result.replace(/%retwUserName/,tweet.retw_user_name+'さんがリツイート');
+
+                        // コメントがあるときは入れる
+                        if (tweet.retw_text !== null)   result = result.replace(/%retw_text/,tweet.retw_text);
+                            
+                        // ないときはカラ文字
+                        else result = result.replace(/%retwText/,'');
+
+                        // リツイート表示
+                        result = result.replace(/%retwDsp/,'block');
+
+                    } else {
+                        // リツイートがないときは非表示
+
+                         result = result.replace(/%retwUserName/,'');
+                         result = result.replace(/%retwText/,'');
+                         result = result.replace(/%retwDsp/,'none');
+
+                    }
 
                     // console.log(result);
 
@@ -227,3 +252,6 @@ $('#tweetbtn').on('click',function(ev){
     });
 
 });
+
+// // リツイートするとき
+// $('#retweet').on('click',function)

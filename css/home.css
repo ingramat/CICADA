@@ -4,7 +4,7 @@
     /*text-align: center;*/
     /*margin-left:50%;*/
     width: 500px;
-    height: 200px;
+    height: 250px;
     border: solid #333;
 }
 
@@ -231,4 +231,37 @@ textarea {
 .error_message {
     font-weight: bold;
     color: #ff8888;
+}
+
+.retweet{
+    margin-left:10px;
+}
+
+#retweeted{
+    color:#66cdaa;
+}
+
+#retweet_icon{
+    color:gray;
+}
+
+#retweet_icon:hover{
+    color:#66cdaa;
+    cursor: pointer;
+}
+
+
+#retweet_icon:active{
+    color:#ff8888;
+    cursor: pointer;
+}
+
+#retweet_count{
+    color:gray;
+    margin-left:10px;
+}
+
+.column_child{
+    display:flex;
+    flex-direction: column;
 }

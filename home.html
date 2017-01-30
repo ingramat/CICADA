@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div id="profile">
-                    <a href="./profile.html"><img src="" alt="" class="login_user_profile_img img_rounded"></a>
+                    <a href="./profile.html"><img src="" alt="" class="login_user_profile_img img-rounded"></a>
                     <p id="information"><span id="name"><a href="./profile.html" class="login_user_name"></a></span><br>
                         <span><a href="./profile.html" class="login_user_id"></a></span></p>
                     <button type="button" class="btn btn-default btn-info header">フォロー</button>
@@ -101,6 +101,48 @@
         </div>
 
         <div id="tweets_container">
+
+            <div class="row">
+                <div class="col-sm-3" id="tes"></div>
+
+                <div class="col-sm-9">
+                    <div class="hea">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-9">
+                                <div class="der"></div>
+                                <div class="tweet">
+                                    <div class="row_child retweet" id="retweeted_container" style="display:%retwDsp">
+                                        <i class="fa fa-retweet" aria-hidden="true" id="retweeted"></i>
+                                        <p class="retweet"><font size="2" color="gray">%retwUserName</font></p>
+                                    </div>
+                                    <p id="retweet_text" class="retweet" style="display:%retwDsp">%retwText</p>
+                                    <img src="%profileImg" alt="" class="propro img-rounded">
+                                    <div class="uee">
+                                        <p class=""><span class="name_h"><a href="">%userName</a></span>
+                                        <span class="id_h"><a href="">@%userId</a></span></p>
+                                    </div>
+                                    <div class="tui">
+                                        <p class="ter">%tweetText</p>
+                                    </div>
+                                    <div class="column_child">
+                                    <img src="%twImg" alt="" class="propro img-rounded" style="display:%imgdisp;">
+                                    <input type="hidden" value="%twId">
+                                    <div class="row_child space-around">
+                                        <span class="fa fa-retweet" aria-hidden="true" id="retweet_icon"></span>
+                                        <p id="retweet_count">%retweetCount</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
                
         </div>
     </main>

@@ -59,6 +59,7 @@ class Tweet {
     public $retw_id;
     public $retw_user_id;
     public $retw_date;
+    public $retw_text;
     public $retw_count;
     public $tw_img;
     public $like_count;
@@ -71,7 +72,7 @@ class Tweet {
 
 
     public function __construct($in_id=null,$in_tw_date=null,$in_tw_user_id=null,$in_tw_text=null,$in_retw_id=null,$in_retw_user_id=null,
-                                $in_retw_date=null,$in_retw_count=null,$in_tw_img=null,$in_like_count=null,$in_tw_user_name=null,$in_tw_user_usrId=null,
+                                $in_retw_date=null,$in_retw_text=null,$in_retw_count=null,$in_tw_img=null,$in_like_count=null,$in_tw_user_name=null,$in_tw_user_usrId=null,
                                 $in_tw_profile_img=null,$in_retw_user_name=null,$in_retw_user_usrId=null,$in_retw_profile_img=null){
 
         $this->id = $in_id;
@@ -81,6 +82,7 @@ class Tweet {
         $this->retw_id = $in_retw_id;
         $this->retw_user_id = $in_retw_user_id;
         $this->retw_date = $in_retw_date;
+        $this->retw_text = $in_retw_text;
         $this->retw_count = $in_retw_count;
         $this->tw_img = $in_tw_img;
         $this->like_count = $in_like_count;
