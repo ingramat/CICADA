@@ -119,6 +119,8 @@ $('#btnRegisterInput').on('click',function(ev){
             // 登録内容のアップロードが成功したら
             window.location.href = './registration_confirm.html';
         
+        } else if (data === 'FILE_INVALID'){
+            $('#error_ajax').text('無効なファイル形式です。');
         } else if (data === 'ALREADY_EXISTS'){
             $('#error_ajax').text('そのユーザー名もしくはメールアドレスはすでに登録されています。');
         } else {

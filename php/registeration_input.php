@@ -60,6 +60,19 @@ if(isset($_FILES['profile_img']) && $_FILES['profile_img']['error']==0){
         }
     }
 
+    // 画像ファイルかチェック
+    $filepath = pathinfo($_FILES['tw_img']['name']);
+    $filetype = $filepath['extension'];
+
+    $filetype = strtolower($filetype);
+
+    if (!in_array($filetype,array('jpg','jpeg','gif','png','bmp'),true)){
+        // もしファイル形式が画像以外なら
+        echo 'FILE_INVALID';
+        exit();
+    }
+
+
     //***File名の変更***
     $file_name = $_FILES["profile_img"]["name"]; //ファイル名取得
     $extension = pathinfo($file_name, PATHINFO_EXTENSION); //拡張子取得
