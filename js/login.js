@@ -37,9 +37,11 @@ $('#btnSubmit').on('click',function(ev){
         }).done(function(res){
             console.log('ajax return'); 
             console.log(res);   
-            if (res === 'LOGIN_OK'){
+            let resAry = JSON.parse(res); 
+            if (resAry['status'] === 'LOGIN_OK'){
 
-                // ログインできたらホーム画面に
+                // ログインできたらidを保存してホーム画面に
+                sessionStorage.setItem('loginId',resAry['id']);
                 window.location.href = './home.html';
 
             } else if (res === 'NO_USER_FOUND' || res === 'VERIFY_NG'){

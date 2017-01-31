@@ -59,7 +59,7 @@ if (!isset($data['user_pwd']) || $data['user_pwd'] == ''){
         $_SESSION['chk_ssid'] = session_id();
         $_SESSION['login_id'] = $data['id'];
 
-        echo 'LOGIN_OK';
+        echo json_encode(array('status'=>'LOGIN_OK','id'=>$data['id']));
         exit();
     
     }else{

@@ -36,7 +36,7 @@ if (isset($_GET['search_queries']) && $_GET['search_queries'] !== ''){
     // ツイート本文の検索
     $pdo = db_connect();
 
-    $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_count`, `tw_img`, `like_count`,
+    $sql = "SELECT `tweet`.`id`, `tw_date`, `tw_user_id`, `tw_text`, `retw_id`, `retw_user_id`, `retw_date`, `retw_text`, `retw_count`, `tw_img`, `like_count`,
         `t_user`.`user_name` AS `tw_user_name`,
         `t_user`.`user_id` AS `tw_user_usrId`,
         `t_user`.`profile_img` AS `tw_profile_img`, 
@@ -99,7 +99,7 @@ $cnt = 0;
 while( $data = $stmt->fetch(PDO::FETCH_ASSOC)){
     // var_dump($data);
     $hitTweets[$cnt] = new Tweet($data['id'],$data['tw_date'],$data['tw_user_id'],$data['tw_text'],
-                        $data['retw_id'],$data['retw_user_id'],$data['retw_date'],$data['retw_count'],$data['tw_img'],
+                        $data['retw_id'],$data['retw_user_id'],$data['retw_date'],$data['retw_text'],$data['retw_count'],$data['tw_img'],
                         $data['like_count'],$data['tw_user_name'],$data['tw_user_usrId'],$data['tw_profile_img'],
                         $data['retw_user_name'],$data['retw_user_usrId'],$data['retw_profile_img']);
     $cnt++;

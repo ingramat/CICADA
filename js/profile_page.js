@@ -130,3 +130,28 @@ $.ajax({
 }).fail(function(data, textStatus, jqXHR){
     console.log(data);
 });
+
+
+// 検索ボタンをした時
+
+$('#btnSearch').on('click',function(ev){
+    console.log('clicked');
+
+    ev.preventDefault();
+
+    let searchString = $('#inputSearch').val();
+
+    if (!searchString) return false;
+    // 検索文字列がないなら戻る。
+
+    // 文字列を空白で区切って
+    let searchQueries = searchString.split(' ');
+
+    // 検索キーワードをセッションストレージに格納
+    sessionStorage.setItem('searchQueries',JSON.stringify(searchQueries));
+
+    console.dir(searchQueries);
+    
+    // 検索ページに飛ぶ
+    window.location.href = './search_result.html';
+});

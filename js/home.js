@@ -146,17 +146,9 @@ $.ajax({
 
                     }
 
-                    // console.log(result);
-
-                    // let $tweet_section = $('<div></div>');
-                    // $tweet_section.append(temp_tw_section);
-
                     let $result = $(result);
-                    // console.log($result.find('.retweet_icon'));
-                    // console.log($('.retweet_icon'));
-
-
-                    // リツイートするとき
+                    
+                    // リツイート用のイベント登録
                     $result.find('.retweet_icon').on('click',function(ev){
                         
                         // let $parent = $(this).parent();
@@ -300,7 +292,7 @@ $('#tweetbtn').on('click',function(ev){
 });
 
 // // リツイートするとき
-$('#retweetbtn').bind('click',function(ev){
+$('#retweetbtn').on('click',function(ev){
 
     console.log('retweet pushed');
     console.dir(ev);
