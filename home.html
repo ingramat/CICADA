@@ -60,7 +60,7 @@
                                     <span>ツイート</span>
                             </button>
                         </div>
-                        <p id="error_ajax" class="error_message"></p>
+                        <p id="error_ajax_tw" class="error_message"></p>
                     </div>
                 </div>
                 <div class="btnC"><button type="button" class="btn btn-default btn-info header">ツイート</button>
@@ -77,22 +77,15 @@
                         <div id="retw_close">✕</div>
                     </div>
                     <div id="retw_modal-content">
-                        <textarea id="retweetarea" name="tw_text" placeholder="コメント入力" maxlength='300'></textarea>
+                        <textarea id="retweetarea" name="retw_text" placeholder="コメント入力" maxlength='300'></textarea>
                         <div class="row_child">
-                            <div class="img_preview">
-                                <img src="" alt="" id="retw_pre_img">
-                            </div>
-                            <label for="retw_img_file">
-                                <span class="fa fa-camera" id="camera_icon"></span>
-                                <input type="file" id="retw_img_file" style="display:none;" accept="image/*" name="tw_img">
-                            </label>
                             
-                            <div id="cnt_text">140</div>
+                            <div id="retw_cnt_text">140</div>
                             <button type="" id="retweetbtn" disabled="true">
                                     <span>リツイート</span>
                             </button>
                         </div>
-                        <p id="error_ajax" class="error_message"></p>
+                        <p id="error_ajax_retw" class="error_message"></p>
                     </div>
                 </div>
                 
@@ -136,45 +129,7 @@
 
         <div id="tweets_container">
 
-            <div class="row">
-                <div class="col-sm-3" id="tes"></div>
-
-                <div class="col-sm-9">
-                    <div class="hea">
-                        <div class="row">
-                            <div class="col-sm-2"></div>
-                            <div class="col-sm-9">
-                                <div class="der"></div>
-                                <div class="tweet">
-                                    <div class="row_child retweet" id="retweeted_container" style="display:%retwDsp">
-                                        <i class="fa fa-retweet" aria-hidden="true" id="retweeted"></i>
-                                        <p class="retweet"><font size="2" color="gray">%retwUserName</font></p>
-                                    </div>
-                                    <p id="retweet_text" class="retweet" style="display:%retwDsp">%retwText</p>
-                                    <img src="%profileImg" alt="" class="propro img-rounded">
-                                    <div class="uee">
-                                        <p class=""><span class="name_h"><a href="">%userName</a></span>
-                                        <span class="id_h"><a href="">@%userId</a></span></p>
-                                    </div>
-                                    <div class="tui">
-                                        <p class="ter">%tweetText</p>
-                                    </div>
-                                    <div class="column_child">
-                                    <img src="%twImg" alt="" class="propro img-rounded" style="display:%imgdisp;">
-                                    <input type="hidden" value="%twId">
-                                    <div class="row_child space-around">
-                                        <span class="fa fa-retweet" aria-hidden="true" id="retweet_icon"></span>
-                                        <p id="retweet_count">%retweetCount</p>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-1"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            
 
 
                

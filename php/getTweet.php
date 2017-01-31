@@ -130,7 +130,7 @@ $cnt = 0;
 while ($data = $stmt->fetch(PDO::FETCH_ASSOC)){
 
     $tweets[$cnt] = new Tweet($data['id'],$data['tw_date'],$data['tw_user_id'],$data['tw_text'],
-                        $data['retw_id'],$data['retw_user_id'],$data['retw_date'],$data['retw_date'],$data['retw_count'],$data['tw_img'],
+                        $data['retw_id'],$data['retw_user_id'],$data['retw_date'],$data['retw_text'],$data['retw_count'],$data['tw_img'],
                         $data['like_count'],$data['tw_user_name'],$data['tw_user_usrId'],$data['tw_profile_img'],
                         $data['retw_user_name'],$data['retw_user_usrId'],$data['retw_profile_img']);
 

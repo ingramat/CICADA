@@ -24,9 +24,9 @@ let temp_tw_section = `<div class="row">
                                         <p class="ter">%tweetText</p>
                                     </div>
                                     <img src="%twImg" alt="" class="propro img-rounded" style="display:%imgdisp;">
-                                    <input type="hidden" value="%twId">
+                                    <input type="hidden" id="hiddenval" value="%twId">
                                     <div class="row_child retweet">
-                                        <span class="fa fa-retweet" aria-hidden="true" id="retweet_icon"></span>
+                                        <span class="fa fa-retweet retweet_icon" aria-hidden="true" id="retweet_icon"></span>
                                         <p id="retweet_count">%retweetCount</p>
                                     </div>
                                 </div>
@@ -37,6 +37,10 @@ let temp_tw_section = `<div class="row">
                     </div>
                 </div>
             </div>` ;
+
+
+// hidden val 受け渡し用一時変数
+let tweetId = 0;
 
 
 // プロファイルデータをGET
@@ -122,9 +126,11 @@ $.ajax({
                     if (tweet.retw_user_name !== null){
                         result = result.replace(/%retwUserName/,tweet.retw_user_name+'さんがリツイート');
 
+                        console.log('--- retw ----');
+                        console.log(tweet.retw_text);
                         // コメントがあるときは入れる
-                        if (tweet.retw_text !== null)   result = result.replace(/%retw_text/,tweet.retw_text);
-                            
+                        if (tweet.retw_text !== null)   result = result.replace(/%retwText/,tweet.retw_text);
+                        
                         // ないときはカラ文字
                         else result = result.replace(/%retwText/,'');
 
@@ -142,7 +148,47 @@ $.ajax({
 
                     // console.log(result);
 
-                    $('#tweets_container').append(result);
+                    // let $tweet_section = $('<div></div>');
+                    // $tweet_section.append(temp_tw_section);
+
+                    let $result = $(result);
+                    // console.log($result.find('.retweet_icon'));
+                    // console.log($('.retweet_icon'));
+
+
+                    // リツイートするとき
+                    $result.find('.retweet_icon').on('click',function(ev){
+                        
+                        // let $parent = $(this).parent();
+                        // let $hidden = $parent.siblings() 
+                        console.log($(this).parent().siblings('#hiddenval').attr('value'));
+                        console.log('retwicon pushed');
+                        
+                        tweetId = $(this).parent().siblings('#hiddenval').attr('value');
+
+                        $('#retw_pop_back').fadeIn();
+                        $('#retw_pop').fadeIn();
+                        // Modal OFF event
+                        $('#retw_pop_back').on("click", function() {
+                                $('#retweetarea').val('');
+                            $('#retw_img_file').val('');
+                            $('#retw_pre_img').prop('src','');
+                            $('#retw_pop_back').fadeOut();
+                            $('#retw_pop').fadeOut();
+                            $('#retweetbtn').prop('disabled', true);
+                            $('#retw_cnt_text').text('140');
+                        });
+
+                    });
+
+                    $('#tweets_container').append($result);
+
+                    // $result.ready(function(data){
+                    //     console.log('added!');
+                    //     console.dir(data);
+
+                    
+                    // });
 
                 });
             }
@@ -254,4 +300,61 @@ $('#tweetbtn').on('click',function(ev){
 });
 
 // // リツイートするとき
-// $('#retweet').on('click',function)
+$('#retweetbtn').bind('click',function(ev){
+
+    console.log('retweet pushed');
+    console.dir(ev);
+
+    let tw_comment ="";
+    // リツイートコメントがあるなら
+    if ($('#retweetarea').val() && $('#retweetarea').val() !== ''){
+        tw_comment = $('#retweetarea').val();
+    }
+
+    $.ajax({
+        type:'POST',
+        url:'./php/retweet.php',
+        data:{
+            'retw_text': tw_comment,
+            'tw_id':tweetId
+        }
+    }).done(function(data, textStatus, jqXHR){
+        console.log(data);
+        if (data === 'REGISTER_OK'){
+            // 送信OKならリフレッシュ
+            window.location.href = './home.html';
+            
+        }else {
+            $('#error_ajax_retw').text('登録できませんでした。');
+        }
+
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        $('#error_ajax_retw').text('サーバーとの通信に失敗しています。');
+    });
+
+});
+
+// Modal OFF event
+$("#retw_close").on("click", function() {
+    $('#retweetarea').val('');
+    $('#retw_img_file').val('');
+    $('#retw_pre_img').prop('src','');
+    $('#retw_pop_back').fadeOut();
+    $('#retw_pop').fadeOut();
+    $('#retweetbtn').prop('disabled', true);
+    $('#retw_cnt_text').text('140');
+});
+
+//Count text
+$('#retweetarea').on('keydown keyup change', function() {
+    let count = $(this).val().length;
+    count = 140 - count;
+    $('#retw_cnt_text').text(count);
+    if (count < 140 && count > 0) {
+        $('#retweetbtn').prop('disabled', false);
+    } else if (count < 0) {
+        $('#retw_cnt_text').css("color", "red");
+        $('#retweetbtn').prop('disabled', true);
+    }
+});
+

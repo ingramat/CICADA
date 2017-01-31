@@ -83,5 +83,6 @@ if ($stmt->execute() == false){
  exit('SQL Error:'.$error[2]);
 } 
 
+
 echo 'REGISTER_OK';
 exit();
