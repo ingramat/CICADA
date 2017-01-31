@@ -394,51 +394,51 @@ $('#btn_search_profile').on('click',function(ev){
                     result = result.replace(/%userName/,profile.user_name);
                     result = result.replace(/%userId/,profile.user_usrId);
                     result = result.replace(/%profileText/,profile.profile_text);
-                    console.log(profile.follow_ids);
-                    // フォローしているプロファイル化を調べる。
-                    if ( profile.follow_ids.indexOf(loginId) == -1){
-                        // フォローしていないなら
-                        result = result.replace(/%ForUF/,'フォローする');
-                        result = result.replace(/%btnColor/,'btn-info');
-                    } else {
-                        // フォローしているなら
-                        result = result.replace(/%ForUF/,'フォロー解除');
-                        result = result.replace(/%btnColor/,'btn-default');
-                    }
+                    // console.log(profile.follow_ids);
+                    // // フォローしているプロファイル化を調べる。
+                    // if ( profile.follow_ids.indexOf(loginId) == -1){
+                    //     // フォローしていないなら
+                    //     result = result.replace(/%ForUF/,'フォローする');
+                    //     result = result.replace(/%btnColor/,'btn-info');
+                    // } else {
+                    //     // フォローしているなら
+                    //     result = result.replace(/%ForUF/,'フォロー解除');
+                    //     result = result.replace(/%btnColor/,'btn-default');
+                    // }
 
-                    let $result = $(result);
+                    // let $result = $(result);
 
 
                     
-                    // フォロー用のイベント登録
-                    $result.find('.btnFollow').on('click',function(ev){
+                    // // フォロー用のイベント登録
+                    // $result.find('.btnFollow').on('click',function(ev){
                         
                         
-                        let follow_id = $(this).attr('value');
+                    //     let follow_id = $(this).attr('value');
 
-                        $.ajax({
-                            type:'GET',
-                            url:'./php/addFollow.php',
-                            data:{
-                                'follow_id':follow_id
-                            }
+                    //     $.ajax({
+                    //         type:'GET',
+                    //         url:'./php/addFollow.php',
+                    //         data:{
+                    //             'follow_id':follow_id
+                    //         }
 
-                        }).done(function(data, textStatus, jqXHR){
+                    //     }).done(function(data, textStatus, jqXHR){
 
-                            if (data === 'FOLLOW_OK'){
-                                $(this).text('フォロー中');
-                                $(this).attr('class','btn btn-default btnFollow')
-                            } else if (data === 'UNFOLLOW_OK'){
-                                $(this).text('フォローする');
-                                $(this).attr('class','btn btn-info btnFollow')
-                            }
+                    //         if (data === 'FOLLOW_OK'){
+                    //             $(this).text('フォロー中');
+                    //             $(this).attr('class','btn btn-default btnFollow')
+                    //         } else if (data === 'UNFOLLOW_OK'){
+                    //             $(this).text('フォローする');
+                    //             $(this).attr('class','btn btn-info btnFollow')
+                    //         }
 
-                        }).fail(function(data, textStatus, jqXHR){
+                    //     }).fail(function(data, textStatus, jqXHR){
 
-                        });
+                    //     });
 
 
-                    });
+                    // });
 
                     // メインに表示
                     $('main').append(result);
