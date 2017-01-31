@@ -1,0 +1,220 @@
+body {
+    width: 80%;
+    margin: 0 auto;
+    background: #F5F8FA;
+}
+
+header {
+    background: #FFF;
+}
+
+.header {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+main {}
+
+#profile {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 210px;
+    height: 200px;
+    float: left;
+}
+
+#information {
+    text-align: center;
+}
+
+#name {
+    font-size: 20px;
+}
+
+a:visited:not(.btn) {
+    color: black;
+}
+
+#detail {
+    margin-top: 20px;
+}
+
+.zaki {
+    margin-top: 20px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+#img_pprofile {
+    margin-left: 15%;
+    margin-right: 15%;
+    /*width:80%;*/
+    height: 200px;
+    z-index: -1;
+}
+
+.pro_img {
+    position: relative;
+    ;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+
+p#information.name_follow {
+    text-align: left;
+}
+
+.follow {
+    width: 270px;
+    height: 270px;
+    background-color: white;
+    /*border: thick #ff0000 solid;*/
+    box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
+    -webkit-box-shadow: rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
+}
+
+.pro_foll {
+    padding-top: 25px;
+    margin-left: 10px;
+    float: left;
+    margin-top: -59px;
+    /*position: absolute;*/
+}
+
+.btn_foll {
+    /*margin-top:80px;*/
+    margin-left: 80px;
+}
+
+.ue {
+    height: 50%;
+    background-color: #1DA1F2;
+    /*background-image: url("img/test.jpg");*/
+}
+
+.introduction_foll {
+    margin-top: 30px;
+}
+
+.img_ura {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.tate {
+    margin-top: 20px;
+}
+
+.ttt {
+    border-bottom: #1DA1F2 solid;
+}
+
+#modal {
+    width: 50%;
+    height: 220px;
+    z-index: 5;
+    text-align: center;
+    margin: 0 auto;
+    position: fixed;
+    background-color: #E6F3F8;
+    /*top:10%;*/
+    top: 20%;
+    left: 25%;
+    display: none;
+    border-radius: 15px;
+}
+
+#modal-overlay {
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+#modal-header {
+    color: #8899a6;
+    height: 40px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#modal-header span {
+    position: relative;
+    top: 20%;
+}
+
+#modal-content {
+    position: relative;
+    top: 10%;
+}
+
+#tweetbtn {
+    display: inline-block;
+    height: 40px;
+    width: 112px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007DAB;
+    cursor: pointer;
+}
+
+#tweetbtn:disabled {
+    background-color: #007DAB;
+    cursor: default;
+    opacity: 0.6;
+}
+
+#tweetbtn span {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#cnt_text {
+    display: inline-block;
+}
+
+#close {
+    float: right;
+    position: relative;
+    right: 3%;
+    top: 10%;
+    cursor: pointer;
+}
+
+.btnC {
+    text-align: center;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.tweets {
+    float: right;
+    position: relative;
+    right: 5%;
+}
+
+textarea {
+    width: 85%;
+    height: 80px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#camera_icon {
+    position: relative;
+    right: 80%;
+}

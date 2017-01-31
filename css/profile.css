@@ -1,0 +1,388 @@
+body {
+    width: 80%;
+    margin: 0 auto;
+    background: #F5F8FA;
+}
+
+header {
+    background: #FFF;
+}
+
+.header {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+main {}
+
+#profile {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 210px;
+    height: 200px;
+    float: left;
+}
+
+#information {
+    text-align: center;
+}
+
+.tweet {
+    /*margin-left:30%;*/
+    margin-bottom: 10px;
+    /*text-align: center;*/
+    /*margin-left:50%;*/
+    width: 500px;
+    height: 200px;
+    border: solid #333;
+}
+
+#name {
+    font-size: 20px;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    background: #F5F8FA;
+}
+
+header {
+    background: #FFF;
+}
+
+.header {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+main {}
+
+#profile {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 210px;
+    height: 200px;
+    float: left;
+}
+
+#information {
+    text-align: center;
+}
+
+.tweet {
+    /*margin-left:30%;*/
+    margin-bottom: 10px;
+    /*text-align: center;*/
+    /*margin-left:50%;*/
+    width: 500px;
+    height: 200px;
+    border: solid #333;
+}
+
+#name {
+    font-size: 20px;
+}
+
+a:visited:not(.btn) {
+    color: black;
+}
+
+#detail {
+    margin-top: 20px;
+}
+
+.zaki {
+    margin-top: 20px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+#img_pprofile {
+    margin-left: 15%;
+    margin-right: 15%;
+    /*width:80%;*/
+    height: 200px;
+    z-index: -1;
+}
+
+.ttt {
+    border-bottom: #1DA1F2 solid;
+}
+
+.hea {
+    margin-top: 30px;
+}
+
+.propro {
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+
+.id_h {
+    margin-left: 10px;
+}
+
+.name_h {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.uee {
+    margin-top: 10px;
+}
+
+.ter {
+    margin-left: 150px;
+}
+#modal {
+    width: 50%;
+    height: 220px;
+    z-index: 5;
+    text-align: center;
+    margin: 0 auto;
+    position: fixed;
+    background-color: #E6F3F8;
+    /*top:10%;*/
+    top: 20%;
+    left: 25%;
+    display: none;
+    border-radius: 15px;
+}
+
+#modal-overlay {
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+#modal-header {
+    color: #8899a6;
+    height: 40px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#modal-header span {
+    position: relative;
+    top: 20%;
+}
+
+#modal-content {
+    position: relative;
+    top: 10%;
+}
+
+#tweetbtn {
+    display: inline-block;
+    height: 40px;
+    width: 20%;
+    border-radius: 5px;
+    border: none;
+    background-color: #007DAB;
+    cursor: pointer;
+    position: absolute;
+    right:5%;
+}
+
+#tweetbtn:disabled {
+    background-color: #007DAB;
+    cursor: default;
+    opacity: 0.6;
+}
+
+#tweetbtn span {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#cnt_text {
+    display: inline-block;
+    position:relative;
+    left:65%;
+    top:50%;
+}
+
+#close {
+    float: right;
+    position: relative;
+    right: 3%;
+    top: 10%;
+    cursor: pointer;
+}
+
+.btnC {
+    text-align: center;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.tweets {
+    float: right;
+    position: relative;
+    right: 5%;
+}
+
+textarea {
+    width: 85%;
+    height: 80px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#camera_icon {
+    position: absolute;
+    left: 50%;
+    top:50%;
+}
+
+#camera_icon:hover{
+    color:#ff8888;
+    cursor: pointer;
+}
+
+.row_child {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+}
+
+.img_preview{
+    width:30%;
+    height:50px;
+    position:absolute;
+    left:5%;
+    top:10%;
+}
+
+.img_preview img{
+    width:auto;
+    max-height:100%;
+}
+
+.login_user_profile_img {
+    width: 200px;
+    height: 200px;
+}
+
+#www {
+    margin-left: 150px;
+}
+
+.error_message {
+    font-weight: bold;
+    color: #ff8888;
+}
+
+.retweet{
+    margin-left:10px;
+}
+
+#retweeted{
+    color:#66cdaa;
+}
+
+#retweet_icon{
+    color:gray;
+}
+
+#retweet_icon:hover{
+    color:#66cdaa;
+    cursor: pointer;
+}
+
+
+#retweet_icon:active{
+    color:#ff8888;
+    cursor: pointer;
+}
+
+#retweet_count{
+    color:gray;
+    margin-left:10px;
+}
+
+.column_child{
+    display:flex;
+    flex-direction: column;
+}
+
+
+#retw_modal-content {
+    position: relative;
+    top: 10%;
+}
+
+#retweetbtn {
+    display: inline-block;
+    height: 40px;
+    width: 20%;
+    border-radius: 5px;
+    border: none;
+    background-color: #007DAB;
+    cursor: pointer;
+    position: absolute;
+    right:5%;
+}
+
+#retweetbtn:disabled {
+    background-color: #007DAB;
+    cursor: default;
+    opacity: 0.6;
+}
+
+#retweetbtn span {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#retw_cnt_text {
+    display: inline-block;
+    position:relative;
+    left:65%;
+    top:50%;
+}
+
+#retw_close {
+    float: right;
+    position: relative;
+    right: 3%;
+    top: 10%;
+    cursor: pointer;
+}
+
+#retweetarea {
+    width: 85%;
+    height: 80px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#retw_camera_icon {
+    position: absolute;
+    left: 50%;
+    top:50%;
+}
+
+#retw_camera_icon:hover{
+    color:#ff8888;
+    cursor: pointer;
+}
+

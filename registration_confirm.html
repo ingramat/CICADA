@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CICADA 新規登録</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="css/registration_confirm.css" rel="stylesheet" type="text/css" media="all" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 id="tou">CICADA 新規登録確認</h1>
+
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>タイトル</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ユーザID：</th>
+                            <td id="user_id"></td>
+                        </tr>
+                        <tr>
+                            <th>ユーザ名：</th>
+                            <td id="user_name"></td>
+                        </tr>
+                        <tr>
+                            <th>メールアドレス：</th>
+                            <td id="mail_adrs"></td>
+                        </tr>
+                        <tr>
+                            <th>プロフィール画像</th>
+                            <td><img src="" alt="プロフィール画像" id="profile_img"></td>
+                        </tr>
+                        <tr>
+                            <th>自己紹介文：</th>
+                            <td id="profile_text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="row">
+
+                            <div class="col-sm-6"> <button class="btn btn-default" id="btnRegistConfirm">登録</button></div>
+                            <div class="col-sm-6"> <button class="btn btn-default" id="btnReturn">戻る</button></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+                
+    </main>
+
+
+    <!--
+    <div class="container">
+        <header>
+            <h1>CICADA 新規登録確認</h1>
+        </header>
+
+        <div class="main">
+            <p id="display_text">入力内容を確認してください。<br> よろしければ、登録ボタンを押してください。
+            </p>
+
+            <ul id="confirmList" class="column_child">
+                <li class="row_child">
+                    <label class="label">ユーザID：</label>
+                    <div class="value" id="user_id"></div>
+                </li>
+                <li class="row_child">
+                    <div class="label">ユーザ名：</div>
+                    <div class="value" id="user_name"></div>
+                </li>
+                <li class="row_child">
+                    <div class="label">メールアドレス：</div>
+                    <div class="value" id="mail_adrs"></div>
+                </li>
+                <li class="row_child">
+                    <div class="label">プロフィール画像</div>
+                    <div class="value"><img src="" alt="プロフィール画像" id="profile_img"></div>
+                </li>
+                <li class="row_child">
+                    <div class="label">自己紹介文：</div>
+                    <div class="value" id="profile_text"></div>
+                </li>
+
+            </ul>
+            <button id="btnRegistConfirm">登録</button>
+            <button id="btnBack">戻る</button>
+        </div>
+
+        <footer>
+            <p></p>
+        </footer>
+    </div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./js/registration_confirm.js"></script>
+    <!--ここ以下に、javascriptを入れてください。-->
+    <!-- ＊最初に、php にajax GET でユーザが入力した内容を
+            取得してください。
+
+         ＊確認ボタンを押したらajax GET で PHPに'register':'confimed"を送ってください。
+         戻る場合は、新規登録入力画面に戻してください。
+
+        ＊サーバーからの返信が'REGISTER_OK'ならHOMEページヘ、
+            'REGISTER_NG'なら何らかのエラーで失敗-->
+</body>
+
+</html>

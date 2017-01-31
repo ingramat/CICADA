@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="css/follower.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/style.js"></script>
+    <title>CICADA</title>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="col-sm-1 header">
+                <a href=""><img src="img/semi.png" alt="アイコン"></a>
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-4">
+                <form class="navbar-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="キーワード" size="40">
+                    </div>
+                    <button type="submit" class="btn btn-info">検索</button>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <div id="modal-overlay"></div>
+                <div id="modal">
+                    <div id="modal-header">
+                        <span>ツイートする
+    </span>
+                        <div id="close">✕</div>
+                    </div>
+                    <div id="modal-content">
+                        <textarea id="tweetarea" name="tweetarea" placeholder="いまどうしてる?" maxlength='300'></textarea>
+                        <div class="tweets btn">
+                            <i class="fa fa-camera" aria-hidden="true" id="camera_icon"></i>
+                            <div id="cnt_text">140</div>
+                            <a href="#">
+                                <button type="" id="tweetbtn" disabled="true">
+          <span>ツイート</span>
+        </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnC"><button type="button" class="btn btn-default btn-info header">ツイート</button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- <section id="profile"> -->
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="profile">
+                    <img src="img/profile.jpg" alt="" width="200" height="200">
+                    <p id="information"><span id="name"><a href="">トムブラウン</a></span><br>
+                        <span><a href="">@tomtom</a></span></p>
+                    <!-- <button type="button" class="btn btn-default btn-info header">フォロー</button>
+          <button type="button" class="btn btn-default btn-info header">フォロワー</button> -->
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <img src="img/test.jpg" alt="" id="img_pprofile">
+            </div>
+        </div>
+        <!-- </section> -->
+        <div class="row">
+            <div class="row zaki">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <div class="col-sm-1">
+                        <span class="btn"><a href="profile.html">ツイート</a></span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="btn"><a href="follow.html">フォロー</a></span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="btn ttt"><a href="">フォロワー</a></span>
+                    </div>
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-1"><button type="button" class="btn btn-default　header">プロフィールを編集</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tate">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-info btn-xs header btn_foll">フォロー中</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-default btn-xs header btn_foll">フォローする</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-info btn-xs header btn_foll">フォロー中</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-3"></div> -->
+        </div>
+
+        <div class="row tate">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-default btn-xs header btn_foll">フォローする</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-info btn-xs header btn_foll">フォロー中</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-default btn-xs header btn_foll">フォローする</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-3"></div> -->
+        </div>
+
+        <div class="row tate">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-info btn-xs header btn_foll">フォロー中</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-default btn-xs header btn_foll">フォローする</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 ">
+                <div class="follower">
+                    <div class="ue">
+                        <img src="img/test.jpg" alt="" class="img_ura">
+                        <div class="pro_foll">
+                            <img src="img/profile.jpg" alt="" class="pro_img">
+                            <p id="information" class="name_follower"><span><a href="">トムブラウン</a></span><br>
+                                <span><a href="">@tomtom</a></span></p>
+                        </div>
+                        <button type="button" class="btn btn-default btn-xs header btn_foll">フォローする</button>
+                    </div>
+                    <div class="introduction_foll">
+                        <p>トムです。バックパッカーとして世界を旅しています。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-3"></div> -->
+        </div>
+
+    </main>
+</body>
+
+</html>

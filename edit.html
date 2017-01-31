@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
+    <title>CICADA</title>
+
+</head>
+
+<body>
+    <h1>プロフィール編集</h1>
+    <div class="container">
+        <form action="">
+            <div class="form-group" id="registerForm">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="text" name="user_id" placeholder="ユーザーID" class="form-control" id="user_id">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="email" name="mail_adrs" placeholder="メールアドレス" class="form-control" id="mail_adrs">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="password" name="user_pwd" placeholder="パスワード" class="form-control" id="user_pwd">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="text" name="user_name" placeholder="ニックネーム" class="form-control" id="user_name">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="textarea" name="profile_text" size="40" placeholder="自己紹介文" class="form-control" rows="3" id="profile_text"></div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="img_preview">
+                <img src="" alt="" id="pre_img">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="file" id="profile_img" accept="image/*" name="profile_img" class="form-control-file">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p id="error_ajax" class="error_message"></p>
+    <button id="btnRegisterInput" class="btn btn-primary">編集する</button>
+    <script src="./js/register_input.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link href="css/profile.css" rel="stylesheet" type="text/css" media="all" />
+    
+
+    <title>CICADA</title>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="col-sm-1 header">
+                <a href="./home.html"><img src="img/semi.png" alt="アイコン"></a>
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-4">
+                <form class="navbar-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="キーワード" size="40">
+                    </div>
+                    <button type="submit" class="btn btn-info">検索</button>
+                </form>
+            </div>
+            <!--tweet modal-->
+            <div class="col-sm-1">
+                <div class="modal-overlay" id="tw_pop_back"></div>
+                <div class="modal" id="tw_pop">
+                    <div class="modal-header">
+                        <span>ツイートする</span>
+                        <div id="tw_close">✕</div>
+                    </div>
+                    <div id="tw_modal-content">
+                        <textarea id="tweetarea" name="tw_text" placeholder="いまどうしてる?" maxlength='300'></textarea>
+                        <div class="row_child">
+                            <div class="img_preview">
+                                <img src="" alt="" id="tw_pre_img">
+                            </div>
+                            <label for="tw_img_file">
+                                <span class="fa fa-camera" id="camera_icon"></span>
+                                <input type="file" id="tw_img_file" style="display:none;" accept="image/*" name="tw_img">
+                            </label>
+                            
+                            <div id="tw_cnt_text">140</div>
+                            <button type="" id="tweetbtn" disabled="true">
+                                    <span>ツイート</span>
+                            </button>
+                        </div>
+                        <p id="error_ajax_tw" class="error_message"></p>
+                    </div>
+                </div>
+                <div class="btnC"><button type="button" class="btn btn-default btn-info header">ツイート</button>
+                </div>
+
+            </div>
+
+            <!-- retweet modal-->
+            <div class="col-sm-1">
+                <div class="modal-overlay" id="retw_pop_back"></div>
+                <div class="modal" id="retw_pop">
+                    <div class="modal-header">
+                        <span>リツイートする</span>
+                        <div id="retw_close">✕</div>
+                    </div>
+                    <div id="retw_modal-content">
+                        <textarea id="retweetarea" name="retw_text" placeholder="コメント入力" maxlength='300'></textarea>
+                        <div class="row_child">
+                            
+                            <div id="retw_cnt_text">140</div>
+                            <button type="" id="retweetbtn" disabled="true">
+                                    <span>リツイート</span>
+                            </button>
+                        </div>
+                        <p id="error_ajax_retw" class="error_message"></p>
+                    </div>
+                </div>
+                
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- <section id="profile"> -->
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="profile">
+                    <a href="./profile.html"><img src="" alt="" class="login_user_profile_img"></a>
+                    <p id="information"><span id="name"><a href="./profile.html" class="login_user_name"></a></span><br>
+                        <span><a href="./profile.html" class="login_user_id"></a></span></p>
+                    <!-- <button type="button" class="btn btn-default btn-info header">フォロー</button>
+          <button type="button" class="btn btn-default btn-info header">フォロワー</button> -->
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <img src="img/test.jpg" alt="" id="img_pprofile">
+            </div>
+        </div>
+
+        <!-- </section> -->
+        <div class="row">
+            <div class="row zaki">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <div class="col-sm-1">
+                        <span class="btn ttt"><a href="">ツイート<br><span id="tweet_count">0</span></a>
+                        </span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="btn"><a href="follow.html">フォロー<br><span id="follow_count">0</span></a>
+                        </span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="btn"><a href="follower.html">フォロワー<br><span id="follower_count">0</span></a>
+                        </span>
+                    </div>
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-1"><button type="button" class="btn btn-default header">プロフィールを編集</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hea" id="tweets_container">
+
+            <!--<div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="der"></div>
+                    <div class="tweet">
+                        <img src="img/profile.jpg" alt="" class="propro">
+                           <p id="www"><font size="1" color="gray"></font></p>
+                        <div class="uee">
+                            <p class=""><span class="name_h"><a href="">トムブラウン</a></span><span class="id_h"><a href="">@tomtom</a></span></p>
+                        </div>
+                        <div class="tui">
+                            <p class="ter">インドなう</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>-->
+
+
+        </div>
+    </main>
+    <script src="./js/profile_page.js"></script>
+    <script type="text/javascript" src="js/tweet_modal.js"></script>
+    <!--<script src="./js/get_tweet.js"></script>-->
+</body>
+
+</html>

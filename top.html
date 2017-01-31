@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="css/top.css" rel="stylesheet" type="text/css" media="all" />
+    <title>CICADA</title>
+</head>
+
+<body>
+    <video src="video/top.mp4" autoplay loop muted></video>
+    <div id="header">
+        <div class="row">
+            <div class="col-sm-10"></div>
+            <div class="col-sm-1"><button type="button" class="btn btn-default btn-primary" id="btnLogin">ログイン</button></div>
+            <div class="col-sm-1"><button type="button" class="btn btn-default btn-info"><a href="register.html">新規登録</a></button></div>
+        </div>
+    </div>
+
+    <!-- テンプレートを使用(http://codepen.io/miroot/pen/qwIgC) -->
+    <div id="login_back"></div>
+    <div class="login" id="loginPopUp">
+        <div class="login-triangle"></div>
+
+        <h2 class="login-header">Log in</h2>
+
+        <div id="formContainer">
+            <form class="login-container">
+                <p class="has-dangar"><input type="text" placeholder="Email or User ID" id="emailOrUsrId" class="form-control"></p>
+                <p class="has-dangar"><input type="password" placeholder="Password" id="UsrPwd" class="form-control"></p>
+            </form>
+            <button id="btnSubmit" class="btn btn-primary">LOGIN</button>
+            <p id="error_message"></p>
+        </div>
+    </div>
+
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="./js/login.js"></script>
+</body>
+
+</html>
